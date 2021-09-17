@@ -1,0 +1,19 @@
+#caja1{
+    background-color: #fafafa;
+  margin-left: 35%;
+  margin-top: 2%;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  /* IMPORTANTE */
+  text-align: center;
+}
+
+#caja2{
+    background-color: #fafafa;
+  margin-left: 35%;
+  margin-top: 10%;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  /* IMPORTANTE */
+  text-align: center;
+}

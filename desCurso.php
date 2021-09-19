@@ -12,7 +12,7 @@
     $squery=mysqli_query($conn, $sql);
     if($squery){
 
-        header("Location: admin.php");
+        header("Location: admin2.php");
 
     }
 ?>

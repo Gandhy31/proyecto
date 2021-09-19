@@ -1,6 +1,10 @@
 <?php
     include("conexion.php");
     $conn = conectar();
+    session_start();
+    if(!isset($_SESSION['idG'])){
+        header("Location: index.php");
+    }
     $id=$_GET['id'];
     $sql="SELECT*
           FROM usuario
@@ -86,9 +90,9 @@
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li><a href="usuario.php?id=<?php echo $row['id']?>">Editar Perfil</a></li>
-                    <li><a href="#">Historial de Compras</a></li>
+                    <li><a href="historial.php?id=<?php echo $row['id']?>">Historial de Compras</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Cerrar Sesión</a></li>
+                    <li><a href="logout.php">Cerrar Sesión</a></li>
                   </ul>
                   </div>
 

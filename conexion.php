@@ -3,7 +3,7 @@ function conectar(){
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $bd="curso";
+    $bd="curso2";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password,$bd);

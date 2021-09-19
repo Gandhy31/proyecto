@@ -1,4 +1,14 @@
 <?php
+    include("conexion.php");
+    $conn = conectar();
+    session_start();
+    if(isset($_SESSION['idG'])){
+      $id=$_SESSION['idG'];
+      header("Location: index2.php?id=$id");
+    }
+?>
+
+<?php
     $nombres = $_GET['nombres'];
     $apellidos = $_GET['apellidos'];
     $cel = $_GET['cel'];

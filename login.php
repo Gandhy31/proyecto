@@ -1,3 +1,13 @@
+<?php
+    include("conexion.php");
+    $conn = conectar();
+    session_start();
+    if(isset($_SESSION['idG'])){
+      $id=$_SESSION['idG'];
+      header("Location: index2.php?id=$id");
+    }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>

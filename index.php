@@ -351,7 +351,7 @@
             <div class="contact-form">
               <div id="sendmessage">Su mensaje fue enviado. Gracias!</div>
               <div id="errormessage"></div>
-              <form action="mensaje.php" method="POST" class="contactForm">
+              <form action="mensaje.php" method="POST">
                 <div class="col-md-6 padding-right-zero">
                   <div class="form-group">
                     <input type="text" name="nombres" class="form-control" id="name" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />

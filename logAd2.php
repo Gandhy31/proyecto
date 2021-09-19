@@ -13,7 +13,7 @@
     if(($row1['usuario']==$user)&&($row1['contrasena']==$pass)){ 
         session_start();
         $_SESSION['idA']=$id;        
-        Header("Location: admin.php");
+        Header("Location: admin1.php");
     }else{
         Header("Location: index.php");
     }

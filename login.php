@@ -1,3 +1,13 @@
+<?php
+    include("conexion.php");
+    $conn = conectar();
+    session_start();
+    if(isset($_SESSION['idG'])){
+      $id=$_SESSION['idG'];
+      header("Location: index2.php?id=$id");
+    }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,6 +30,7 @@
                     <input type="submit" class="btn btn-primary">
                 </form>
      </div>
+     <a href="logAd.php" id="back" class="btn btn-danger">Ingresar como administrador</a>
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>

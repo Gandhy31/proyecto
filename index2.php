@@ -1,6 +1,10 @@
 <?php
     include("conexion.php");
     $conn = conectar();
+    session_start();
+    if(!isset($_SESSION['idG'])){
+        header("Location: index.php");
+    }
     $id=$_GET['id'];
     $sql="SELECT*
           FROM usuario
@@ -85,10 +89,10 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">Ediar Perfil</a></li>
-                    <li><a href="#">Historial de Compras</a></li>
+                    <li><a href="usuario.php?id=<?php echo $row['id']?>">Editar Perfil</a></li>
+                    <li><a href="historial.php?id=<?php echo $row['id']?>">Historial de Compras</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Cerrar Sesión</a></li>
+                    <li><a href="logout.php">Cerrar Sesión</a></li>
                   </ul>
                   </div>
 
@@ -176,60 +180,72 @@
             <p class="sub-title pad-bt15">Conoce todo lo que tenemos para tí !</p>
             <hr class="bottom-line">
           </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/curso-6.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Curso de MAQUILLAJE PROFESIONAL</h2>
-                <p>Modalidad Online</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/curso-10.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Curso de AUTOMAQUILLAJE</h2>
-                <p>Modalidad Online</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/curso-8.png" class="img-responsive">
-              <figcaption>
-                <h2>Curso de TÉCNICA ESPECIALISTA EN UÑAS</h2>
-                <p>Modalidad Presencial</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/port04.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Curso de FOTOGRAFÍA DIGITAL INICIAL</h2>
-                <p>Modalidad Online</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/curso-5.jpg " class="img-responsive">
-              <figcaption>
-                <h2>Curso de FACECHART PRO</h2>
-                <p>Modalidad Online</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/curso-7.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Curso de PEINADOS SOCIAL BÁSICO</h2>
-                <p>Modalidad Online</p>
-              </figcaption>
-            </figure>
-          </div>
+          <a href="c12.php?id=<?php echo $row['id'] ?>">
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15" >
+              <figure>
+                <img src="img/curso-6.jpg" class="img-responsive">
+                <figcaption>
+                  <h2>Curso de MAQUILLAJE PROFESIONAL</h2>
+                  <p>Modalidad Online</p>
+                </figcaption>
+              </figure>
+            </div>
+          </a>
+          <a href="c22.php?id=<?php echo $row['id'] ?>">
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
+              <figure>
+                <img src="img/curso-10.jpg" class="img-responsive">
+                <figcaption>
+                  <h2>Curso de AUTOMAQUILLAJE</h2>
+                  <p>Modalidad Online</p>
+                </figcaption>
+              </figure>
+            </div>
+          </a>
+          <a href="c32.php?id=<?php echo $row['id'] ?>">
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
+              <figure>
+                <img src="img/curso-8.png" class="img-responsive">
+                <figcaption>
+                  <h2>Curso de TÉCNICA ESPECIALISTA EN UÑAS</h2>
+                  <p>Modalidad Presencial</p>
+                </figcaption>
+              </figure>
+            </div>
+          </a>
+          <a href="c42.php?id=<?php echo $row['id'] ?>">
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
+              <figure>
+                <img src="img/port04.jpg" class="img-responsive">
+                <figcaption>
+                  <h2>Curso de FOTOGRAFÍA DIGITAL INICIAL</h2>
+                  <p>Modalidad Online</p>
+                </figcaption>
+              </figure>
+            </div>
+          </a>
+          <a href="c52.php?id=<?php echo $row['id'] ?>">
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15" >
+              <figure>
+                <img src="img/curso-5.jpg " class="img-responsive">
+                <figcaption>
+                  <h2>Curso de FACECHART PRO</h2>
+                  <p>Modalidad Online</p>
+                </figcaption>
+              </figure>
+            </div>
+          </a>
+          <a href="c62.php?id=<?php echo $row['id'] ?>">
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
+              <figure>
+                <img src="img/curso-7.jpg" class="img-responsive">
+                <figcaption>
+                  <h2>Curso de PEINADOS SOCIAL BÁSICO</h2>
+                  <p>Modalidad Online</p>
+                </figcaption>
+              </figure>
+            </div>
+          </a>
         </div>
       </div>
     </section>

@@ -1,3 +1,13 @@
+<?php
+    include("conexion.php");
+    $conn = conectar();
+    session_start();
+    if(isset($_SESSION['idG'])){
+      $id=$_SESSION['idG'];
+      header("Location: index2.php?id=$id");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -152,60 +162,72 @@
             <p class="sub-title pad-bt15">Conoce todo lo que tenemos para tí !</p>
             <hr class="bottom-line">
           </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/curso-6.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Curso de MAQUILLAJE PROFESIONAL</h2>
-                <p>Modalidad Online</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/curso-10.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Curso de AUTOMAQUILLAJE</h2>
-                <p>Modalidad Online</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/curso-8.png" class="img-responsive">
-              <figcaption>
-                <h2>Curso de TÉCNICA ESPECIALISTA EN UÑAS</h2>
-                <p>Modalidad Presencial</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/port04.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Curso de FOTOGRAFÍA DIGITAL INICIAL</h2>
-                <p>Modalidad Online</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/curso-5.jpg " class="img-responsive">
-              <figcaption>
-                <h2>Curso de FACECHART PRO</h2>
-                <p>Modalidad Online</p>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-            <figure>
-              <img src="img/curso-7.jpg" class="img-responsive">
-              <figcaption>
-                <h2>Curso de PEINADOS SOCIAL BÁSICO</h2>
-                <p>Modalidad Online</p>
-              </figcaption>
-            </figure>
-          </div>
+          <a href="c1.php">
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15" >
+              <figure>
+                <img src="img/curso-6.jpg" class="img-responsive">
+                <figcaption>
+                  <h2>Curso de MAQUILLAJE PROFESIONAL</h2>
+                  <p>Modalidad Online</p>
+                </figcaption>
+              </figure>
+            </div>
+          </a>
+          <a href="c2.php">
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
+              <figure>
+                <img src="img/curso-10.jpg" class="img-responsive">
+                <figcaption>
+                  <h2>Curso de AUTOMAQUILLAJE</h2>
+                  <p>Modalidad Online</p>
+                </figcaption>
+              </figure>
+            </div>
+          </a>
+          <a href="c3.php">
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
+              <figure>
+                <img src="img/curso-8.png" class="img-responsive">
+                <figcaption>
+                  <h2>Curso de TÉCNICA ESPECIALISTA EN UÑAS</h2>
+                  <p>Modalidad Presencial</p>
+                </figcaption>
+              </figure>
+            </div>
+          </a>
+          <a href="c4.php">
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
+              <figure>
+                <img src="img/port04.jpg" class="img-responsive">
+                <figcaption>
+                  <h2>Curso de FOTOGRAFÍA DIGITAL INICIAL</h2>
+                  <p>Modalidad Online</p>
+                </figcaption>
+              </figure>
+            </div>
+          </a>
+          <a href="c5.php">
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15" >
+              <figure>
+                <img src="img/curso-5.jpg " class="img-responsive">
+                <figcaption>
+                  <h2>Curso de FACECHART PRO</h2>
+                  <p>Modalidad Online</p>
+                </figcaption>
+              </figure>
+            </div>
+          </a>
+          <a href="c6.php">
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
+              <figure>
+                <img src="img/curso-7.jpg" class="img-responsive">
+                <figcaption>
+                  <h2>Curso de PEINADOS SOCIAL BÁSICO</h2>
+                  <p>Modalidad Online</p>
+                </figcaption>
+              </figure>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -329,10 +351,10 @@
             <div class="contact-form">
               <div id="sendmessage">Su mensaje fue enviado. Gracias!</div>
               <div id="errormessage"></div>
-              <form action="" method="post" role="form" class="contactForm">
+              <form action="mensaje.php" method="POST" class="contactForm">
                 <div class="col-md-6 padding-right-zero">
                   <div class="form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <input type="text" name="nombres" class="form-control" id="name" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                     <div class="validation"></div>
                   </div>
                 </div>
@@ -344,13 +366,13 @@
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                    <input type="text" class="form-control" name="asunto" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                     <div class="validation"></div>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensaje"></textarea>
+                    <textarea class="form-control" name="mensaje" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensaje"></textarea>
                     <div class="validation"></div>
                   </div>
                   <button type="submit" class="btn btn-primary btn-submit">Enviar ahora</button>

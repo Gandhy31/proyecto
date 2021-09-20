@@ -180,7 +180,7 @@
             <p class="sub-title pad-bt15">Conoce todo lo que tenemos para tí !</p>
             <hr class="bottom-line">
           </div>
-          <a href="c12.php?id=<?php echo $row['id'] ?>">
+          <a href="curso12.php?id=<?php echo $row['id'] ?>">
             <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15" >
               <figure>
                 <img src="img/curso-6.jpg" class="img-responsive">

@@ -35,6 +35,7 @@
             <th scope="col">Precio</th>
             <th scope="col">Pago</th>
             <th scope="col"></th>
+            <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -56,6 +57,7 @@
                     ?>
                 </th>
                 <th><a href="factura.php?id=<?php echo $row['id']?>" class="btn btn-info">Factura</a></th>
+                <th><a href="https://wa.me/593980264931?text=Me%20interesa%20el%20Curso%20de%20Maquillaje%20Profesional%20Online" class="btn btn-info">Realizar pago</a></th>
             </tr>
          <?php 
             }

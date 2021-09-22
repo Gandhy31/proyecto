@@ -1,32 +1,32 @@
 <?php
-    include("conexion.php");
-    $conn = conectar();
-    session_start();
-    if(!isset($_SESSION['idG'])){
-        header("Location: index.php");
-    }
-    $id=$_GET['id'];
-    $sql="SELECT*
+include("conexion.php");
+$conn = conectar();
+session_start();
+if (!isset($_SESSION['idG'])) {
+   header("Location: index.php");
+}
+$id = $_GET['id'];
+$sql = "SELECT*
           FROM usuario
           WHERE id='$id'";
-    $query = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($query);
-    $cont=0;
-    $sql1="SELECT*
+$query = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($query);
+$cont = 0;
+$sql1 = "SELECT*
            FROM factura
            WHERE idUsuario='$id' AND idCurso=1";
-    $query1 = mysqli_query($conn, $sql1);
-    $comp = mysqli_num_rows($query1);
-    $row1 = mysqli_fetch_array($query1);
-    if($comp>=1){
-      $cont=1;
-      $ac = $row1['activo'];
-    }
-    $sql2="SELECT*
+$query1 = mysqli_query($conn, $sql1);
+$comp = mysqli_num_rows($query1);
+$row1 = mysqli_fetch_array($query1);
+if ($comp >= 1) {
+   $cont = 1;
+   $ac = $row1['activo'];
+}
+$sql2 = "SELECT*
            FROM curso
            WHERE id=1";
-   $query2 = mysqli_query($conn, $sql2);
-   $row2 = mysqli_fetch_array($query2);
+$query2 = mysqli_query($conn, $sql2);
+$row2 = mysqli_fetch_array($query2);
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@
    <title></title>
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
    <link rel="stylesheet" type="text/css" href="css/style_curso.css" />
-   
+
 </head>
 
 <body>
@@ -76,23 +76,23 @@
 
                   </ul>
 
-                  <div class="collapse navbar-collapse" id="myNavbar">
-                  <ul class="nav navbar-nav navbar-left ms-auto">
+                  <div class="dropdown ms-auto">
+                     <a class="btn btn-secondary dropdown-toggle avatar bg-transparent border-0 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                           <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg>
+                     </a>
 
-                  <div class="dropdown ">
-                     <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <?php echo $row['nombres']." ".$row['apellidos'] ?>
-                     </button>
-                     <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-                        <li><a href="usuario.php?id=<?php echo $row['id']?>">Editar Perfil</a></li>
-                        <li><a href="historial.php?id=<?php echo $row['id']?>">Historial de Compras</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="logout.php">Cerrar Sesión</a></li>
+                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Iniciado como <strong>Matt13</strong></a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Historial de compras</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
                      </ul>
                   </div>
-                    <li class=""><a href="#"></a></li>
-                  </ul>
-                </div>
 
                </div>
             </div>
@@ -121,7 +121,7 @@
                   <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
                   <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z" />
                </svg>Costos</h1>
-            <p class="ms-4"><?php echo "$ ". $row2['precio'] ?></p>
+            <p class="ms-4"><?php echo "$ " . $row2['precio'] ?></p>
          </div>
 
          <div class="titulos nivel">
@@ -308,33 +308,31 @@
       </div>
 
       <a id="btn1" class="btn btn-success btn-lg mt-3 ms-auto
-         <?php 
-         if($cont==1){
+         <?php
+         if ($cont == 1) {
             echo "disabled";
-         } 
-         
-         ?>" href="compra.php?id=<?php echo $row['id'] ?>&idc=1" onClick="location.href: 'https://wa.me/593980264931?text=Me%20interesa%20el%20Curso%20de%20Maquillaje%20Profesional%20Online'" role="button" 
-         <?php 
-         if($cont==1){
-            echo "aria-disabled=\"true\" ";
          }
-         ?>
-      >
-         <?php 
-         if($cont==1){
-            if($ac==0){
+
+         ?>" href="compra.php?id=<?php echo $row['id'] ?>&idc=1" onClick="location.href: 'https://wa.me/593980264931?text=Me%20interesa%20el%20Curso%20de%20Maquillaje%20Profesional%20Online'" role="button" <?php
+                                                                                                                                                                                                               if ($cont == 1) {
+                                                                                                                                                                                                                  echo "aria-disabled=\"true\" ";
+                                                                                                                                                                                                               }
+                                                                                                                                                                                                               ?>>
+         <?php
+         if ($cont == 1) {
+            if ($ac == 0) {
                echo "Pago pendiente";
-            }else{
+            } else {
                echo "Comprado";
-            } 
-         }else{
+            }
+         } else {
             echo "Comprar";
          }
          ?>
       </a>
 
    </section>
-  
+
    <footer id="footer">
       <p>&copy; 2021 Inua. Diseñado por <strong>Grupo Apolo</strong></p>
       <div id="social">

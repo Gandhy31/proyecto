@@ -55,5 +55,5 @@ body{
 
 
 #admin{
-    height: auto;
+    height: calc(100vh - 202px);
 }

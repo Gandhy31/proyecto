@@ -77,13 +77,13 @@
                   </ul>
 
                   <div class="collapse navbar-collapse" id="myNavbar">
-                  <ul class="nav navbar-nav navbar-left">
+                  <ul class="nav navbar-nav navbar-left ms-auto">
 
-                  <div class="dropdown">
-                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="dropdown ">
+                     <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         <?php echo $row['nombres']." ".$row['apellidos'] ?>
                      </button>
-                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                     <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
                         <li><a href="usuario.php?id=<?php echo $row['id']?>">Editar Perfil</a></li>
                         <li><a href="historial.php?id=<?php echo $row['id']?>">Historial de Compras</a></li>
                         <li role="separator" class="divider"></li>

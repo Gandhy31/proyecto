@@ -23,47 +23,9 @@ body{
     color: #be9e21;
 }
 
-#imagen{
-    float: left;
-    
-}
 
 #info{
     margin-top: 30px;
-}
-
-#info h2{
-    font-weight: bold;
-    text-align: center;
-    letter-spacing: 1px;
-}
-
-#detalle{
-    float: right;
-    width: 500px;
-    margin-left: 15px;
-    margin-top: 100px;
-}
-
-#datos{
-    margin-top: 30px;
-    width: 650px;
-    color: #333;
-}
-
-.titulos h1{
-    font-weight: bold;
-    font-size: 20px;
-}
-
-#datos p{
-    font-size: 15px;
-    margin-top: -10px;
-}
-
-#acordeon button{
-    font-weight: bold;
-    
 }
 
 #footer{
@@ -91,11 +53,7 @@ body{
     float: right;
 }
 
-#info .btn{
-    margin-left: 45% !important;
-}
 
-#social{
-    float: right;
+#admin{
+    height: calc(100vh - 202px);
 }
-

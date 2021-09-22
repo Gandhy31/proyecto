@@ -85,12 +85,12 @@ $row2 = mysqli_fetch_array($query2);
                      </a>
 
                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Iniciado como <strong>Matt13</strong></a></li>
+                        <li><a class="dropdown-item" href="#">Iniciado como <strong><?php echo $row['usuario'] ?></strong></a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Editar perfil</a></li>
-                        <li><a class="dropdown-item" href="#">Historial de compras</a></li>
+                        <li><a class="dropdown-item" href="usuario.php?id=<?php echo $row['id']?>">Editar perfil</a></li>
+                        <li><a class="dropdown-item" href="historial.php?id=<?php echo $row['id']?>">Historial de compras</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Cerrar sesión</a></li>
                      </ul>
                   </div>
 

@@ -1,3 +1,13 @@
+<?php
+include("conexion.php");
+$conn = conectar();
+$sql2 = "SELECT*
+           FROM curso
+           WHERE id=1";
+$query2 = mysqli_query($conn, $sql2);
+$row2 = mysqli_fetch_array($query2);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -77,7 +87,7 @@
                   <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
                   <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z" />
                </svg>Costos</h1>
-            <p class="ms-4">$280</p>
+            <p class="ms-4"><?php echo "$ " . $row2['precio'] ?></p>
          </div>
 
          <div class="titulos nivel">

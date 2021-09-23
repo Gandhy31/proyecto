@@ -3522,7 +3522,7 @@ fieldset[disabled] .btn-link:hover {
 .btn-group-lg>.btn,
 .btn-lg {
  padding:10px 16px;
- font-size:18px;
+ font-size:14.75px;
  line-height:1.3333333;
  border-radius:6px
 }
@@ -3637,6 +3637,13 @@ tbody.collapse.in {
  overflow:hidden;
  background-color:#e5e5e5
 }
+
+#dropdownMenu1{
+  margin-top: 10px;
+  text-transform:uppercase
+  
+}
+
 .dropdown-menu>li>a {
  display:block;
  padding:3px 20px;
@@ -3648,7 +3655,7 @@ tbody.collapse.in {
 }
 .dropdown-menu>li>a:focus,
 .dropdown-menu>li>a:hover {
- color:#262626;
+ color:#be9e21;
  text-decoration:none;
  background-color:#f5f5f5
 }
@@ -4664,17 +4671,19 @@ textarea.input-group-sm>.input-group-btn>.btn {
  }
 }
 .navbar-default .navbar-link {
+ 
  color:#777
 }
 .navbar-default .navbar-link:hover {
  color:#333
 }
 .navbar-default .btn-link {
- color:#777
+ color:white
 }
 .navbar-default .btn-link:focus,
 .navbar-default .btn-link:hover {
- color:#333
+ text-decoration: none;
+ color:#be9e21;
 }
 .navbar-default .btn-link[disabled]:focus,
 .navbar-default .btn-link[disabled]:hover,

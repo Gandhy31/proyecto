@@ -32,10 +32,6 @@
                     <input type="date" class="form-control mb-3" id="validationDefault01" name="fechaN"   required>
                     <input type="text" class="form-control mb-3" id="validationDefault01" name="usuario" placeholder="Usuario"  required>
                     <input type="password" class="form-control mb-3" id="validationDefault01"  name="password" placeholder="Contraseña"  required>
-                    <div id="passwordHelpBlock" class="form-text">
-                      Tu contraseña debe tener una longitud de entre 8 a 15 caracteres.
-                    </div>
-
                     <input type="submit" class="btn btn-primary">
                 </form>
      </div>

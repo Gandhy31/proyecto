@@ -1,16 +1,16 @@
 <?php
-    include("conexion.php");
-    $conn = conectar();
-    session_start();
-    if(!isset($_SESSION['idG'])){
-        header("Location: index.php");
-    }
-    $id=$_GET['id'];
-    $sql="SELECT*
+include("conexion.php");
+$conn = conectar();
+session_start();
+if (!isset($_SESSION['idG'])) {
+  header("Location: index.php");
+}
+$id = $_GET['id'];
+$sql = "SELECT*
           FROM usuario
           WHERE id='$id'";
-    $query = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($query);
+$query = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($query);
 ?>
 
 <!DOCTYPE html>
@@ -43,14 +43,14 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/animate.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
- 
+
 </head>
 
 <body>
- 
+
   <div class="loader"></div>
   <div id="myDiv">
-    
+
     <!--HEADER-->
     <div class="header">
       <div class="bg-color">
@@ -59,17 +59,17 @@
             <img id="loguito" src="img/inua-logo4.png" alt="Imagen de Logotipo">
           </div>
           <nav class="navbar navbar-default navbar-fixed-top">
-              <div class="container">
+            <div class="container">
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>  
-              </button>
+                  <span class="icon-bar"></span>
+                </button>
               </div>
               <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right" id="barra-superior">
-                 
+
                   <li class="active"><a href="#main-header">Inicio</a></li>
                   <li class=""><a href="#feature">Acerca de</a></li>
                   <li class=""><a href="#service">Servicios</a></li>
@@ -83,18 +83,18 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav navbar-left">
 
-                  <div class="dropdown">
-                  <button class="btn btn-link btn-lg dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <?php echo $row['nombres']." ".$row['apellidos'] ?>
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="usuario.php?id=<?php echo $row['id']?>">Editar Perfil</a></li>
-                    <li><a href="historial.php?id=<?php echo $row['id']?>">Historial de Compras</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="logout.php">Cerrar Sesión</a></li>
-                  </ul>
-                  </div>
+                    <div class="dropdown">
+                      <button class="btn btn-link btn-lg dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <?php echo $row['nombres'] . " " . $row['apellidos'] ?>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="usuario.php?id=<?php echo $row['id'] ?>">Editar Perfil</a></li>
+                        <li><a href="historial.php?id=<?php echo $row['id'] ?>">Historial de Compras</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="logout.php">Cerrar Sesión</a></li>
+                      </ul>
+                    </div>
 
 
                     <li class=""><a href="#"></a></li>
@@ -104,7 +104,7 @@
             </div>
           </nav>
         </header>
-       
+
       </div>
     </div>
     <!--/ HEADER-->
@@ -166,7 +166,7 @@
             <hr class="bottom-line">
           </div>
           <iframe width="700" height="455" src="https://www.youtube.com/embed/84Ipar9j-D0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
+        </div>
     </section>
     <!---->
     <!---->
@@ -181,7 +181,7 @@
             <hr class="bottom-line">
           </div>
           <a href="curso12.php?id=<?php echo $row['id'] ?>">
-            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15" >
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
               <figure>
                 <img src="img/curso-6.jpg" class="img-responsive">
                 <figcaption>
@@ -225,7 +225,7 @@
             </div>
           </a>
           <a href="c52.php?id=<?php echo $row['id'] ?>">
-            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15" >
+            <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
               <figure>
                 <img src="img/curso-5.jpg " class="img-responsive">
                 <figcaption>
@@ -345,7 +345,7 @@
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
     </section>
@@ -410,7 +410,7 @@
         <div class="row text-center">
           <p>&copy; 2021 Inua. Todos los derechos reservados.</p>
           <div class="credits">
-        
+
             Diseñado por <a href="https://www.youtube.com/channel/UCDH0DJaVLkCDtl_YN9hhByw/featured?view_as=subscriber">Grupo Apolo</a>
           </div>
         </div>
@@ -428,4 +428,5 @@
   <script src="contactform/contactform.js"></script>
 
 </body>
+
 </html>

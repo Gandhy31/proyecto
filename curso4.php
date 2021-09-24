@@ -14,7 +14,7 @@ $row2 = mysqli_fetch_array($query2);
 <head>
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, user-scalable=no" />
-   <title></title>
+   <title>Curso de Fotografía</title>
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
    <link rel="stylesheet" type="text/css" href="css/style_curso.css" />
 </head>

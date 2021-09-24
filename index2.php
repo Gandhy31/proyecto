@@ -191,7 +191,7 @@ $row = mysqli_fetch_array($query);
               </figure>
             </div>
           </a>
-          <a href="c22.php?id=<?php echo $row['id'] ?>">
+          <a href="curso22.php?id=<?php echo $row['id'] ?>">
             <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
               <figure>
                 <img src="img/curso-10.jpg" class="img-responsive">
@@ -202,7 +202,7 @@ $row = mysqli_fetch_array($query);
               </figure>
             </div>
           </a>
-          <a href="c32.php?id=<?php echo $row['id'] ?>">
+          <a href="curso32.php?id=<?php echo $row['id'] ?>">
             <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
               <figure>
                 <img src="img/curso-8.png" class="img-responsive">
@@ -213,7 +213,7 @@ $row = mysqli_fetch_array($query);
               </figure>
             </div>
           </a>
-          <a href="c42.php?id=<?php echo $row['id'] ?>">
+          <a href="curso42.php?id=<?php echo $row['id'] ?>">
             <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
               <figure>
                 <img src="img/port04.jpg" class="img-responsive">
@@ -224,7 +224,7 @@ $row = mysqli_fetch_array($query);
               </figure>
             </div>
           </a>
-          <a href="c52.php?id=<?php echo $row['id'] ?>">
+          <a href="curso52.php?id=<?php echo $row['id'] ?>">
             <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
               <figure>
                 <img src="img/curso-5.jpg " class="img-responsive">
@@ -235,7 +235,7 @@ $row = mysqli_fetch_array($query);
               </figure>
             </div>
           </a>
-          <a href="c62.php?id=<?php echo $row['id'] ?>">
+          <a href="curso62.php?id=<?php echo $row['id'] ?>">
             <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
               <figure>
                 <img src="img/curso-7.jpg" class="img-responsive">

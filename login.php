@@ -27,12 +27,13 @@
                 <form action="login2.php" method="POST">
                     <input type="text" class="form-control mb-3" id="validationDefault01" name="usuario" placeholder="Usuario"  required>
                     <input type="password" class="form-control mb-3" id="validationDefault01"  name="password" placeholder="Contraseña"  required>
-                    <input type="submit" class="btn btn-primary">
+                    <input type="submit" class="btn btn-outline-primary" value="Ingresar">
+                    <a href="logAd.php" id="back" class="btn btn-outline-danger">Ingresar como administrador</a>
+                    <p>Si aún no tienes una cuenta registrate aquí</p>
                 </form>
+                
      </div>
-     <a href="logAd.php" id="back" class="btn btn-danger">Ingresar como administrador</a>
-
-    
+     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
   </body>

@@ -5,12 +5,20 @@
    if (!isset($_SESSION['idG'])) {
       header("Location: index.php");
    }
+   if(isset($_GET['user'])){
+      $user = $_GET['user'];
+      echo "<script language=\"javascript\">alert(\"El nombre de usuario ".$user." ya se encuentra en uso\");</script>";
+   }
     $id=$_GET['id'];
     $sql="SELECT*
           FROM usuario
           WHERE id='$id'";
     $query = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($query);
+    $sql2 = "SELECT curso.nombre, curso.descripcion, factura.fecha, factura.total, factura.activo, factura.id
+            FROM curso INNER JOIN factura
+            ON curso.id=factura.idCurso AND factura.idUsuario='$id'";
+    $query2=mysqli_query($conn, $sql2);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -21,39 +29,7 @@
    <title></title>
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
    <link rel="stylesheet" type="text/css" href="css/style_admin.css" />
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("#bt1").click(function(){
-                $("#form1").toggle();
-            });
-        });
-        $(document).ready(function(){
-            $("#bt2").click(function(){
-                $("#form2").toggle();
-            });
-        });
-        $(document).ready(function(){
-            $("#bt3").click(function(){
-                $("#form3").toggle();
-            });
-        });
-        $(document).ready(function(){
-            $("#bt4").click(function(){
-                $("#form4").toggle();
-            });
-        });
-        $(document).ready(function(){
-            $("#bt5").click(function(){
-                $("#form5").toggle();
-            });
-        });
-        $(document).ready(function(){
-            $("#bt6").click(function(){
-                $("#form6").toggle();
-            });
-        });
-    </script>
+   
 </head>
 
 <body>
@@ -117,8 +93,6 @@
    </header>
 
    <section id="info" class="wrap">
-      
-
       <div id="admin">
       <div class="accordion col-md-4" id="accordionExample">
          <div class="accordion-item">
@@ -271,9 +245,46 @@
                </div>
             </div>
          </div>
-      </div>         
-   </div>
-
+      </div>  
+      <h1>Historial de compras</h1>
+      <table class="table col-md-1">
+         <thead>
+               <tr>
+               <th scope="col">Nombre</th>
+               <th scope="col">Descripción</th>
+               <th scope="col">Fecha</th>
+               <th scope="col">Precio</th>
+               <th scope="col">Pago</th>
+               </tr>
+         </thead>
+         <tbody>
+         <?php
+               while($row2=mysqli_fetch_array($query2)){
+         ?>
+               <tr>
+                  <th><?php  echo $row2['nombre']?></th>
+                  <th><?php  echo $row2['descripcion']?></th>
+                  <th><?php  echo $row2['fecha']?></th>
+                  <th><?php  echo $row2['total']?></th>
+                  <th>
+                     <?php  
+                           if($row2['activo']==0){
+                              echo "Pago pendediente";
+                           }else{
+                              echo "Pagado";
+                           }
+                     ?>
+                  </th>
+               </tr>
+            <?php 
+               }
+         ?>
+         </tbody>       
+      </div>
+      <div id="historial" class="col-md-3">
+      
+      </table>
+      </div>
    </section>
 
 

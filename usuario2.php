@@ -23,39 +23,6 @@
    <title></title>
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
    <link rel="stylesheet" type="text/css" href="css/style_admin.css" />
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("#bt1").click(function(){
-                $("#form1").toggle();
-            });
-        });
-        $(document).ready(function(){
-            $("#bt2").click(function(){
-                $("#form2").toggle();
-            });
-        });
-        $(document).ready(function(){
-            $("#bt3").click(function(){
-                $("#form3").toggle();
-            });
-        });
-        $(document).ready(function(){
-            $("#bt4").click(function(){
-                $("#form4").toggle();
-            });
-        });
-        $(document).ready(function(){
-            $("#bt5").click(function(){
-                $("#form5").toggle();
-            });
-        });
-        $(document).ready(function(){
-            $("#bt6").click(function(){
-                $("#form6").toggle();
-            });
-        });
-    </script>
 </head>
 
 <body>

@@ -1,24 +1,24 @@
 <?php
-    include("conexion.php");
-    $conn = conectar();
-    session_start();
-   if (!isset($_SESSION['idG'])) {
-      header("Location: index.php");
-   }
-   if(isset($_GET['user'])){
-      $user = $_GET['user'];
-      echo "<script language=\"javascript\">alert(\"El nombre de usuario ".$user." ya se encuentra en uso\");</script>";
-   }
-    $id=$_GET['id'];
-    $sql="SELECT*
+include("conexion.php");
+$conn = conectar();
+session_start();
+if (!isset($_SESSION['idG'])) {
+   header("Location: index.php");
+}
+if (isset($_GET['user'])) {
+   $user = $_GET['user'];
+   echo "<script language=\"javascript\">alert(\"El nombre de usuario " . $user . " ya se encuentra en uso\");</script>";
+}
+$id = $_GET['id'];
+$sql = "SELECT*
           FROM usuario
           WHERE id='$id'";
-    $query = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($query);
-    $sql2 = "SELECT curso.nombre, curso.descripcion, factura.fecha, factura.total, factura.activo, factura.id
+$query = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($query);
+$sql2 = "SELECT curso.nombre, curso.descripcion, factura.fecha, factura.total, factura.activo, factura.id
             FROM curso INNER JOIN factura
             ON curso.id=factura.idCurso AND factura.idUsuario='$id'";
-    $query2=mysqli_query($conn, $sql2);
+$query2 = mysqli_query($conn, $sql2);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,7 +29,7 @@
    <title></title>
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
    <link rel="stylesheet" type="text/css" href="css/style_admin.css" />
-   
+
 </head>
 
 <body>
@@ -77,10 +77,14 @@
 
                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="#">Iniciado como <strong><?php echo $row['usuario'] ?></strong></a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="usuario.php?id=<?php echo $row['id']?>">Editar perfil</a></li>
-                        <li><a class="dropdown-item" href="historial.php?id=<?php echo $row['id']?>">Historial de compras</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                           <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="usuario.php?id=<?php echo $row['id'] ?>">Editar perfil</a></li>
+                        <li><a class="dropdown-item" href="historial.php?id=<?php echo $row['id'] ?>">Historial de compras</a></li>
+                        <li>
+                           <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" href="logout.php">Cerrar sesión</a></li>
                      </ul>
                   </div>
@@ -92,200 +96,204 @@
       </div>
    </header>
 
-   <section id="info" class="wrap">
-      <div id="admin">
-      <div class="accordion col-md-4" id="accordionExample">
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-               Editar Usuario
-               </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-               <div class="accordion-body">  
-                  <form id="form1" action="updUser.php" method="POST">
-                     <div class="col-md-10">
-                        <fieldset disabled>
-                           <input type="text" class="form-control mb-3" id="disabledInput"  value="<?php echo $row['usuario'] ?>" >
-                        </fieldset>
-                     </div> 
-                     <div class="col-md-10">
-                        <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
-                        <input type="text" class="form-control mb-3" id="validationDefault01" name="usuario" placeholder="Usuario"  required>
-                     </div>
-                     <div class="col-md-3">
-                        <input type="submit" class="btn btn-secondary" value="Cambiar">
-                     </div>
-                  </form>                         
+   <div class="container mt-5">
+
+      <div class="row">
+         <div class="accordion col-md-4" id="accordionExample">
+            <div class="accordion-item">
+               <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                     Editar Usuario
+                  </button>
+               </h2>
+               <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                     <form id="form1" action="updUser.php" method="POST">
+                        <div class="col-md-10">
+                           <fieldset disabled>
+                              <input type="text" class="form-control mb-3" id="disabledInput" value="<?php echo $row['usuario'] ?>">
+                           </fieldset>
+                        </div>
+                        <div class="col-md-10">
+                           <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
+                           <input type="text" class="form-control mb-3" id="validationDefault01" name="usuario" placeholder="Usuario" required>
+                        </div>
+                        <div class="col-md-3">
+                           <input type="submit" class="btn btn-secondary" value="Cambiar">
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-item">
+               <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                     Editar contraseña
+                  </button>
+               </h2>
+               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                     <form id="form2" action="updPass.php" method="POST">
+                        <div class="col-md-10">
+                           <fieldset disabled>
+                              <input type="password" class="form-control mb-3" id="disabledInput" placeholder="<?php echo $row['contrasena'] ?>">
+                           </fieldset>
+                        </div>
+                        <div class="col-md-10">
+                           <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
+                           <input type="password" class="form-control mb-3" id="validationDefault01" name="password" placeholder="Contraseña" required>
+                        </div>
+                        <div class="col-md-3">
+                           <input type="submit" class="btn btn-secondary" value="cambiar">
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-item">
+               <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                     Editar Nombre
+                  </button>
+               </h2>
+               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                     <form id="form3" action="updName.php" method="POST">
+                        <div class="col-md-10">
+                           <fieldset disabled>
+                              <input type="text" class="form-control mb-3" id="disabledInput" placeholder="<?php echo $row['nombres'] ?>">
+                           </fieldset>
+                        </div>
+                        <div class="col-md-10">
+                           <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
+                           <input type="text" class="form-control mb-3" id="validationDefault01" name="nombres" placeholder="Nombres" required>
+                        </div>
+                        <div class="col-md-3">
+                           <input type="submit" class="btn btn-secondary" value="cambiar">
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-item">
+               <h2 class="accordion-header" id="heading4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                     Editar Apellido
+                  </button>
+               </h2>
+               <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                     <form id="form4" action="updLastName.php" method="POST">
+                        <div class="col-md-10">
+                           <fieldset disabled>
+                              <input type="text" class="form-control mb-3" id="disabledTextInput" placeholder="<?php echo $row['apellidos'] ?>">
+                           </fieldset>
+                        </div>
+                        <div class="col-md-10">
+                           <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
+                           <input type="text" class="form-control mb-3" id="validationDefault01" name="apellidos" placeholder="Apellidos" required>
+                        </div>
+                        <div class="col-md-3">
+                           <input type="submit" class="btn btn-secondary" value="Cambiar">
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-item">
+               <h2 class="accordion-header" id="heading5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                     Editar correo electrónico
+                  </button>
+               </h2>
+               <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                     <form id="form5" action="updEmail.php" method="POST">
+                        <div class="col-md-10">
+                           <fieldset disabled>
+                              <input type="text" class="form-control mb-3" id="disabledInput" placeholder="<?php echo $row['correo'] ?>">
+                           </fieldset>
+                        </div>
+                        <div class="col-md-10">
+                           <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
+                           <input type="email" class="form-control mb-3" id="validationDefault01" name="correo" placeholder="Correo Electrónico" required>
+                        </div>
+                        <div class="col-md-3">
+                           <input type="submit" class="btn btn-primary">
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-item">
+               <h2 class="accordion-header" id="heading6">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                     Editar fecha de nacimiento
+                  </button>
+               </h2>
+               <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                     <form id="form6" action="updDate.php" method="POST">
+                        <div class="col-md-10">
+                           <fieldset disabled>
+                              <input type="text" class="form-control mb-3" id="disabledInput" placeholder="<?php echo $row['fecNac'] ?>">
+                           </fieldset>
+                        </div>
+                        <div class="col-md-10">
+                           <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
+                           <input type="date" class="form-control mb-3" id="validationDefault01" name="fecha" required>
+                        </div>
+                        <div class="col-md-3">
+                           <input type="submit" class="btn btn-secondary" value="Cambiar">
+                        </div>
+                     </form>
+                  </div>
                </div>
             </div>
          </div>
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-               Editar contraseña
-               </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-               <div class="accordion-body">
-                  <form id="form2"  action="updPass.php" method="POST">
-                     <div class="col-md-10">
-                     <fieldset disabled>
-                        <input type="password" class="form-control mb-3" id="disabledInput"  placeholder="<?php echo $row['contrasena'] ?>" >
-                     </fieldset>
-                     </div> 
-                     <div class="col-md-10">
-                        <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
-                        <input type="password" class="form-control mb-3" id="validationDefault01" name="password" placeholder="Contraseña"  required>
-                     </div>
-                     <div class="col-md-3">
-                        <input type="submit" class="btn btn-secondary" value="cambiar">
-                     </div>
-                  </form>    
-               </div>
-            </div>
-         </div>
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-               Editar Nombre
-               </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-               <div class="accordion-body">
-                  <form id="form3" action="updName.php" method="POST">
-                     <div class="col-md-10">
-                     <fieldset disabled>
-                        <input type="text" class="form-control mb-3" id="disabledInput"  placeholder="<?php echo $row['nombres'] ?>" >
-                     </fieldset>
-                     </div> 
-                     <div class="col-md-10">
-                        <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
-                        <input type="text" class="form-control mb-3" id="validationDefault01" name="nombres" placeholder="Nombres"  required>
-                     </div>
-                     <div class="col-md-3">
-                        <input type="submit" class="btn btn-secondary" value="cambiar">
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="heading4">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-               Editar Apellido
-               </button>
-            </h2>
-            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
-               <div class="accordion-body">
-                  <form id="form4" action="updLastName.php" method="POST">
-                     <div class="col-md-10">
-                     <fieldset disabled>
-                     <input type="text" class="form-control mb-3" id="disabledTextInput"  placeholder="<?php echo $row['apellidos'] ?>" >
-                     </fieldset>
-                     </div> 
-                     <div class="col-md-10">
-                        <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
-                        <input type="text" class="form-control mb-3" id="validationDefault01" name="apellidos" placeholder="Apellidos"  required>
-                     </div>
-                     <div class="col-md-3">
-                        <input type="submit" class="btn btn-secondary" value="Cambiar">
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="heading5">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-               Editar correo electrónico
-               </button>
-            </h2>
-            <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionExample">
-               <div class="accordion-body">
-                  <form id="form5" action="updEmail.php" method="POST">
-                     <div class="col-md-10">
-                     <fieldset disabled>
-                        <input type="text" class="form-control mb-3" id="disabledInput"  placeholder="<?php echo $row['correo'] ?>" >
-                     </fieldset>
-                     </div> 
-                     <div class="col-md-10">
-                        <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
-                        <input type="email" class="form-control mb-3" id="validationDefault01" name="correo" placeholder="Correo Electrónico"  required>
-                     </div>
-                     <div class="col-md-3">
-                        <input type="submit" class="btn btn-primary">
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="heading6">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
-               Editar fecha de nacimiento
-               </button>
-            </h2>
-            <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionExample">
-               <div class="accordion-body">
-                  <form id="form6" action="updDate.php" method="POST">
-                     <div class="col-md-10">
-                     <fieldset disabled>
-                        <input type="text" class="form-control mb-3" id="disabledInput"  placeholder="<?php echo $row['fecNac'] ?>" >
-                     </fieldset>
-                     </div> 
-                     <div class="col-md-10">
-                        <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
-                        <input type="date" class="form-control mb-3" id="validationDefault01" name="fecha" required>
-                     </div>
-                     <div class="col-md-3">
-                        <input type="submit" class="btn btn-secondary" value="Cambiar">
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
-      </div>  
-      <h1>Historial de compras</h1>
-      <table class="table col-md-1">
-         <thead>
-               <tr>
-               <th scope="col">Nombre</th>
-               <th scope="col">Descripción</th>
-               <th scope="col">Fecha</th>
-               <th scope="col">Precio</th>
-               <th scope="col">Pago</th>
-               </tr>
-         </thead>
-         <tbody>
-         <?php
-               while($row2=mysqli_fetch_array($query2)){
-         ?>
-               <tr>
-                  <th><?php  echo $row2['nombre']?></th>
-                  <th><?php  echo $row2['descripcion']?></th>
-                  <th><?php  echo $row2['fecha']?></th>
-                  <th><?php  echo $row2['total']?></th>
-                  <th>
-                     <?php  
-                           if($row2['activo']==0){
+
+         <div class="col-md-7 ms-5">
+            <h1 id="title">Historial de compras</h1>
+            <table class="table col-md-1">
+               <thead>
+                  <tr>
+                     <th scope="col">Nombre</th>
+                     <th scope="col">Descripción</th>
+                     <th scope="col">Fecha</th>
+                     <th scope="col">Precio</th>
+                     <th scope="col">Pago</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <?php
+                  while ($row2 = mysqli_fetch_array($query2)) {
+                  ?>
+                     <tr>
+                        <th><?php echo $row2['nombre'] ?></th>
+                        <th><?php echo $row2['descripcion'] ?></th>
+                        <th><?php echo $row2['fecha'] ?></th>
+                        <th><?php echo $row2['total'] ?></th>
+                        <th>
+                           <?php
+                           if ($row2['activo'] == 0) {
                               echo "Pago pendediente";
-                           }else{
+                           } else {
                               echo "Pagado";
                            }
-                     ?>
-                  </th>
-               </tr>
-            <?php 
-               }
-         ?>
-         </tbody>       
+                           ?>
+                        </th>
+                     </tr>
+                  <?php
+                  }
+                  ?>
+               </tbody>
+            </table>
+         </div>
+
       </div>
-      <div id="historial" class="col-md-3">
-      
-      </table>
-      </div>
-   </section>
+
+   </div>
+
 
 
    <footer id="footer">

@@ -15,6 +15,7 @@
         $_SESSION['idG']=$id;     
         Header("Location: index2.php?id=$id");
     }else{
-        Header("Location: login.php");
+        $e=1;
+        Header("Location: login.php?e=$e");
     }
 ?>

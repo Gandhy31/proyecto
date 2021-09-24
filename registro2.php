@@ -44,11 +44,8 @@
                     <input type="date" class="form-control mb-3" id="validationDefault01" name="fechaN" value="<?php echo $fechaN ?>" required>
                     <input type="text" class="form-control mb-3" id="validationDefault01" name="usuario" placeholder="Usuario"  required>
                     <input type="password" class="form-control mb-3" id="validationDefault01"  name="password" placeholder="Contraseña"  required>
-                    <div id="passwordHelpBlock" class="form-text">
-                      Tu contraseña debe tener una longitud de entre 8 a 15 caracteres.
-                    </div>
-
-                    <input type="submit" class="btn btn-primary">
+                    <input type="submit" class="btn btn-primary" value="Regístrate">
+                    <p id="mensaje">Si ya tienes una cuenta <a id="a1" href="login.php">Inicia Sesión aquí</a></p>
                 </form>
      </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>

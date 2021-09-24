@@ -1,7 +1,7 @@
 #caja1{
     background-color: #fafafa;
-  margin-left: 35%;
-  margin-top: 2%;
+  margin-left: 37%;
+  margin-top: 5%;
   padding: 1rem;
   border: 2px solid #ccc;
   /* IMPORTANTE */
@@ -10,7 +10,7 @@
 
 #caja2{
     background-color: #fafafa;
-  margin-left: 35%;
+  margin-left: 37.5%;
   margin-top: 10%;
   padding: 1rem;
   border: 2px solid #ccc;
@@ -19,5 +19,14 @@
 }
 
 #mensaje{
-  margin-top: 5px;
+ margin-top: 15px;
+ margin-bottom: 0px;
+}
+
+#a1:link{
+  text-decoration: none;
+}
+
+#a1:hover{
+  text-decoration: underline;
 }

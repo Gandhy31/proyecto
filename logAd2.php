@@ -15,6 +15,7 @@
         $_SESSION['idA']=$id;        
         Header("Location: admin1.php");
     }else{
-        Header("Location: index.php");
+        $e=1;
+        Header("Location: logAd.php?e=$e");
     }
 ?>

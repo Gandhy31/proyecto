@@ -6,6 +6,9 @@
       $id=$_SESSION['idG'];
       header("Location: index2.php?id=$id");
     }
+    if(isset($_GET['e'])){
+      echo "<script language=\"javascript\">alert(\"Nombre de usuario o contraseña incorrectos\");</script>";
+    }
 ?>
 
 <!doctype html>
@@ -29,7 +32,7 @@
                     <input type="password" class="form-control mb-3" id="validationDefault01"  name="password" placeholder="Contraseña"  required>
                     <input type="submit" class="btn btn-outline-primary" value="Ingresar">
                     <a href="logAd.php" id="back" class="btn btn-outline-danger">Ingresar como administrador</a>
-                    <p>Si aún no tienes una cuenta registrate aquí</p>
+                    <p id="mensaje">Si aún no tienes una cuenta <a id="a1" href="registro.php">Registrate aquí</a></p>
                 </form>
                 
      </div>

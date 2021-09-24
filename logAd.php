@@ -13,11 +13,11 @@
   </head>
   <body>
       <div  class="col-md-3" id="caja2">
-            <h1>Iniciar sesión</h1>
+            <h1>Administrador</h1>
                 <form action="logAd2.php" method="POST">
                     <input type="text" class="form-control mb-3" id="validationDefault01" name="usuario" placeholder="Usuario"  required>
                     <input type="password" class="form-control mb-3" id="validationDefault01"  name="password" placeholder="Contraseña"  required>
-                    <input type="submit" class="btn btn-primary">
+                    <input type="submit" class="btn btn-outline-primary">
                 </form>
      </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>

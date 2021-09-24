@@ -45,6 +45,13 @@ body{
     margin-top: 100px;
 }
 
+#detalle2{
+    float: right;
+    width: 500px;
+    margin-left: 15px;
+    margin-top: 175px;
+}
+
 #datos{
     margin-top: 30px;
     width: 650px;
@@ -64,6 +71,10 @@ body{
 #acordeon button{
     font-weight: bold;
     
+}
+
+#list-group{
+    font-weight: bold;
 }
 
 #footer{

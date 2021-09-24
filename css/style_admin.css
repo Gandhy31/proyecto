@@ -54,6 +54,13 @@ body{
 }
 
 
-#admin{
+#title{
+    text-align: center;
+    font-weight: bold;
+   
+}
+
+.container{
     height: calc(100vh - 202px);
+    text-align: center;
 }

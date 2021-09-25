@@ -253,7 +253,7 @@ $query2 = mysqli_query($conn, $sql2);
          </div>
 
          <div class="col-md-7 ms-5">
-            <h1 id="title">Historial de compras</h1>
+            <h1 id="title">Mis compras</h1>
             <table class="table col-md-1">
                <thead>
                   <tr>

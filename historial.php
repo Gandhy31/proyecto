@@ -128,7 +128,7 @@
                         }
                     ?>
                 </th>
-                <th><a href="factura.php?idF=<?php echo $row2['id']?>&id=<?php echo $id ?>" class="btn btn-outline-secondary">Factura</a></th>
+                <th><a href="factura.php?idF=<?php echo $row2['id']?>&id=<?php echo $id ?>" target="_blank" class="btn btn-outline-secondary">Factura</a></th>
                 <th>
                   <a id="btn1" class="btn btn-outline-secondary 
                      <?php

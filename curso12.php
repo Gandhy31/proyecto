@@ -313,11 +313,12 @@ $row2 = mysqli_fetch_array($query2);
             echo "disabled";
          }
 
-         ?>" href="compra.php?id=<?php echo $row['id'] ?>&idc=1" onClick="location.href: 'https://wa.me/593980264931?text=Me%20interesa%20el%20Curso%20de%20Maquillaje%20Profesional%20Online'" role="button" <?php
-                                                                                                                                                                                                               if ($cont == 1) {
-                                                                                                                                                                                                                  echo "aria-disabled=\"true\" ";
-                                                                                                                                                                                                               }
-                                                                                                                                                                                                               ?>>
+         ?>" href="compra.php?id=<?php echo $row['id'] ?>&idc=1" onClick="location.href: 'https://wa.me/593980264931?text=Me%20interesa%20el%20Curso%20de%20Maquillaje%20Profesional%20Online'" role="button" 
+         <?php
+            if ($cont == 1) {
+               echo "aria-disabled=\"true\" ";
+               }
+          ?>>
          <?php
          if ($cont == 1) {
             if ($ac == 0) {

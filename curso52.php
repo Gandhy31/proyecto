@@ -14,7 +14,7 @@ $row = mysqli_fetch_array($query);
 $cont = 0;
 $sql1 = "SELECT*
            FROM factura
-           WHERE idUsuario='$id' AND idCurso=1";
+           WHERE idUsuario='$id' AND idCurso=5";
 $query1 = mysqli_query($conn, $sql1);
 $comp = mysqli_num_rows($query1);
 $row1 = mysqli_fetch_array($query1);
@@ -177,11 +177,12 @@ $row2 = mysqli_fetch_array($query2);
             echo "disabled";
          }
 
-         ?>" href="compra.php?id=<?php echo $row['id'] ?>&idc=1" onClick="location.href: 'https://wa.me/593980264931?text=Me%20interesa%20el%20Curso%20de%20Maquillaje%20Profesional%20Online'" role="button" <?php
-                                                                                                                                                                                                               if ($cont == 1) {
-                                                                                                                                                                                                                  echo "aria-disabled=\"true\" ";
-                                                                                                                                                                                                               }
-                                                                                                                                                                                                               ?>>
+         ?>" href="compra.php?id=<?php echo $row['id'] ?>&idc=5"  role="button" 
+         <?php
+            if ($cont == 1) {
+               echo "aria-disabled=\"true\" ";
+            }
+         ?>>
          <?php
          if ($cont == 1) {
             if ($ac == 0) {

@@ -259,7 +259,7 @@ $row2 = mysqli_fetch_array($query2);
 
       </div>
 
-      <button type="button" class="btn btn-success btn-lg mt-3 ms-auto">Comprar</button>
+      <a id="btn1" class="btn btn-success btn-lg mt-3 ms-auto" href="registro.php">Comprar</a>
 
    </section>
 

@@ -1,0 +1,71 @@
+/* ESTILOS GENERALES */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background: url(../img/paven.png);
+    font-family: 'Roboto', sans-serif;
+    margin: 8px;
+}
+
+.invoice-box{
+    background-color: whitesmoke;
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+    font-size: 13px;
+    line-height: 25px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+}
+
+.right{
+    text-align: right;
+}
+
+.invoice-box h1{
+    font-size: 30px;
+}
+
+#cabecera{
+    margin-bottom: 50px;
+}
+
+.innum{
+    text-align: right;
+    color: #000000;
+    line-height: 18px;
+}
+
+.innumleft {
+    text-align: left;
+    color: #000000;
+    margin-top: 0px;
+    line-height: 18px;
+}
+
+#cuerpo strong{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#cuerpo{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+table{
+    text-align: right;
+    font-size: 15px;
+}
+
+.left{
+    text-align: left;
+}
+
+
+

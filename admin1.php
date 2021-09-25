@@ -60,7 +60,7 @@
 
                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="#">Iniciado como <strong><?php echo $row2['usuario'] ?></strong></a></li>
-                        <li><a class="dropdown-item" href="admin2.php">Reportes</a></li>
+                        <li><a class="dropdown-item" href="admin2.php?id=<?php echo $id ?>">Reportes</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="logout.php">Cerrar sesión</a></li>
                      </ul>

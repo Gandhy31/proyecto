@@ -2,7 +2,10 @@
     include("conexion.php");
     $conn = conectar();
     session_start();
-    if(isset($_SESSION['idA'])){
+    if(isset($_SESSION['idG'])){
+      $id=$_SESSION['idG'];
+      header("Location: index2.php?id=$id");
+    }else if(isset($_SESSION['idA'])){
       $id=$_SESSION['idA'];
       header("Location: admin1.php?id=$id");
     }

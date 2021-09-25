@@ -117,7 +117,7 @@
          <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-               Editar Cursos
+               Editar cursos
                </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -128,6 +128,7 @@
                            <th scope="col">Código</th>
                            <th scope="col">Nombre</th>
                            <th scope="col">Descripcion</th>
+                           <th scope="col"></th>
                            <th scope="col">Precio</th>
                            <th scope="col"></th>
                            </tr>
@@ -140,15 +141,28 @@
                               <th><?php  echo $row3['id']?></th>
                               <th><?php  echo $row3['nombre']?></th>
                               <th><?php  echo $row3['descripcion']?></th>
+                              <th>
+                                    <form class="row g-2" action="descripcion.php" method="post">
+                                       <div class="col-auto">
+                                       <input type="hidden" class="form-control" name="id" value="<?php echo $id ?>">
+                                       <input type="hidden" class="form-control" name="idC" value="<?php echo $row3['id'] ?>">
+                                       <input type="text" class="form-control" name="desc" required>
+                                       </div>
+                                       <div class="col-auto">
+                                       <button type="submit" class="btn btn-outline-success">Cambiar descripción</button>
+                                       </div>
+                                    </form>
+                              </th>
                               <th><?php  echo $row3['precio']?></th>
                               <th>
-                                    <form class="row g-2" action="precio.php", method="post">
-                                       <div class="col-md-2">
-                                       <input type="hidden" class="form-control" name="id" value="<?php echo $row['id'] ?>">
-                                       <input type="number" class="form-control" name="precio" step="0.01">
+                                    <form class="row g-2" action="precio.php" method="post">
+                                       <div class="col-auto">
+                                       <input type="hidden" class="form-control" name="id" value="<?php echo $id ?>">
+                                       <input type="hidden" class="form-control" name="idC" value="<?php echo $row3['id'] ?>">
+                                       <input type="number" class="form-control" name="precio" step="0.01" min="1" required>
                                        </div>
-                                       <div class="col-md-4">
-                                       <button type="submit" class="btn btn-primary mb-1">Cambiar precio</button>
+                                       <div class="col-auto">
+                                       <button type="submit" class="btn btn-outline-success">Cambiar precio</button>
                                        </div>
                                     </form>
                               </th>

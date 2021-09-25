@@ -5,6 +5,9 @@
     if(isset($_SESSION['idG'])){
       $id=$_SESSION['idG'];
       header("Location: index2.php?id=$id");
+    }else if(isset($_SESSION['idA'])){
+      $id=$_SESSION['idA'];
+      header("Location: admin1.php?id=$id");
     }
 ?>
 <!doctype html>
@@ -30,9 +33,15 @@
                     <input type="text" class="form-control mb-3" id="apellido" name="apellidos" placeholder="Apellidos" onkeypress="return soloLetras(event)" required>
                     <input type="text" class="form-control mb-3" id="numero" name="celular" placeholder="Número de celular" onkeypress="return soloNumeros(event)" required>
                     <input type="email" class="form-control mb-3" id="correo" name="email" placeholder="Correo electrónico"  required>
-                    <input type="date" class="form-control mb-3" id="fecha" name="fechaN"   required>
+                    <div id="text" class="form-label">
+                      Fecha de nacimiento:
+                    </div>
+                    <input type="date" class="form-control mb-3" id="fecha" name="fechaN" required>
                     <input type="text" class="form-control mb-3" id="usuario" name="usuario" placeholder="Usuario"  required>
                     <input type="password" class="form-control mb-3" id="pass"  name="password" placeholder="Contraseña"  required>
+                    <div id="text" class="form-text">
+                      Tu contraseña debe tener una longitud de entre 8 a 15 caracteres.
+                    </div>
                     <input type="submit" class="btn btn-primary" value="Regístrate">
                     <p id="mensaje">Si ya tienes una cuenta <a id="a1" href="login.php">Inicia Sesión aquí</a></p>
                 </form>

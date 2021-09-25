@@ -3,9 +3,9 @@
     $conn = conectar();
     $id = $_POST['id'];
     $idC = $_POST['idC'];
-    $precio = $_POST['precio'];
+    $desc = $_POST['desc'];
     $sql="UPDATE curso
-          SET precio='$precio'
+          SET descripcion='$desc'
           WHERE id = '$idC'";
     $query = mysqli_query($conn, $sql);
     if($query){

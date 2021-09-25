@@ -1,6 +1,10 @@
 <?php
     include("conexion.php");
     $conn = conectar();
+    session_start();
+    if ((!isset($_SESSION['idG']))&&(!isset($_SESSION['idA']))) {
+        header("Location: index.php");
+     }
     $idF = $_GET['idF'];
     $id = $_GET['id'];
     $sql = "SELECT usuario.nombres, usuario.apellidos, factura.id, factura.fecha, factura.total, curso.nombre

@@ -4,8 +4,8 @@
   margin-top: 5%;
   padding: 1rem;
   border: 2px solid #ccc;
-  /* IMPORTANTE */
   text-align: center;
+  /* IMPORTANTE */
 }
 
 #caja2{
@@ -16,6 +16,11 @@
   border: 2px solid #ccc;
   /* IMPORTANTE */
   text-align: center;
+}
+
+#text{
+  text-align: left;
+  margin-left: 4px;
 }
 
 #mensaje{

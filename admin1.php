@@ -18,6 +18,11 @@
     $sql3 = "SELECT*
             FROM curso";
     $query3=mysqli_query($conn, $sql3);
+    $sql4 = "SELECT usuario.nombres, usuario.apellidos, curso.nombre, factura.fecha, factura.total, factura.activo, factura.id
+            FROM usuario INNER JOIN factura
+            ON usuario.id=factura.idUsuario INNER JOIN curso 
+            ON curso.id=factura.idCurso";
+    $query4=mysqli_query($conn,$sql4);
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +60,7 @@
 
                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="#">Iniciado como <strong><?php echo $row2['usuario'] ?></strong></a></li>
+                        <li><a class="dropdown-item" href="admin2.php">Reportes</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="logout.php">Cerrar sesión</a></li>
                      </ul>
@@ -164,24 +170,68 @@
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                <div class="accordion-body">
-                  
-               </div>
-            </div>
-         </div>
-         <div class="accordion-item">
-            <h2 class="accordion-header" id="heading4">
-               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-               Editar Apellido
-               </button>
-            </h2>
-            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
-               <div class="accordion-body">
-                  
+                  <table class="table">
+                     <thead>
+                           <tr>
+                           <th scope="col">Nombres</th>
+                           <th scope="col">Curso</th>
+                           <th scope="col">Fecha</th>
+                           <th scope="col">Precio</th>
+                           <th scope="col">Pago</th>
+                           <th scope="col"></th>
+                           </tr>
+                     </thead>
+                     <tbody>
+                     <?php
+                           while($row4=mysqli_fetch_array($query4)){
+                     ?>
+                           <tr>
+                              <th><?php  echo $row4['nombres']." ".$row4['apellidos']?></th>
+                              <th><?php  echo $row4['nombre']?></th>
+                              <th><?php  echo $row4['fecha']?></th>
+                              <th><?php  echo $row4['total']?></th>
+                              <th>
+                                 <?php  
+                                       if($row4['activo']==0){
+                                          echo "Pago pendediente";
+                                       }else{
+                                          echo "Pagado";
+                                       }
+                                 ?>
+                              </th>
+                              <th><a href="
+                                       <?php 
+                                          if($row4['activo']==0){
+                                             echo "actCurso";
+                                          }else{
+                                             echo "desCurso";
+                                          }
+                                       ?>.php?idF=<?php echo $row4['id']?>&id=<?php echo $id ?>" class="btn btn-outline-<?php 
+                                                                                                      if($row4['activo']==0){
+                                                                                                         echo "success";
+                                                                                                      }else{
+                                                                                                         echo "danger";
+                                                                                                      }
+                                                                                                   ?>">
+                                       <?php 
+                                          if($row4['activo']==0){
+                                             echo "Activar Curso";
+                                          }else{
+                                             echo "Desactivar Curso";
+                                          }
+                                       ?>
+                                 </a>
+                              </th>
+                           </tr>
+                        <?php 
+                           }
+                     ?>
+                     </tbody>
+                  </table>
                </div>
             </div>
          </div>
       </div>  
-      
       </div>
 
    </section>

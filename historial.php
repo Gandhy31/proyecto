@@ -128,9 +128,29 @@
                         }
                     ?>
                 </th>
-                <th><a href="factura.php?idF=<?php echo $row2['id']?>&id=<?php echo $id ?>" class="btn btn-info">Factura</a></th>
+                <th><a href="factura.php?idF=<?php echo $row2['id']?>&id=<?php echo $id ?>" class="btn btn-outline-secondary">Factura</a></th>
                 <th>
-                    
+                  <a id="btn1" class="btn btn-outline-secondary 
+                     <?php
+                        if($row2['activo']==1)
+                        {
+                           echo "disabled";
+                        }
+                     ?>
+                  " href="https://wa.me/593980264931?text=Me%20interesa%20el%20Curso%20de%20Maquillaje%20Profesional%20Online" target="_blank" role="button" 
+                  <?php
+                     if ($row2['activo']==1) {
+                        echo "aria-disabled=\"true\" ";
+                        }
+                  ?>>
+                     <?php
+                        if ($row2['activo']==1) {
+                           echo "Pagado";
+                        }else{
+                           echo "Realizar Pago";
+                        }
+                     ?>
+                  </a>
                 </th>
             </tr>
          <?php 

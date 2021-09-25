@@ -6,13 +6,14 @@
         header("Location: index.php");
     }
     $id = $_GET['id'];
+    $idF = $_GET['idF'];
     $sql = "UPDATE factura
             SET activo=FALSE
-            WHERE id='$id'";
+            WHERE id='$idF'";
     $squery=mysqli_query($conn, $sql);
     if($squery){
 
-        header("Location: admin2.php");
+        header("Location: admin1.php?id=$id");
 
     }
 ?>

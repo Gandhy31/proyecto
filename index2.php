@@ -369,7 +369,7 @@ $row = mysqli_fetch_array($query);
             <div class="contact-form">
               <div id="sendmessage">Su mensaje fue enviado. Gracias!</div>
               <div id="errormessage"></div>
-              <form action="" method="post" role="form" class="contactForm">
+              <form action="mensaje.php" method="post" >
                 <div class="col-md-6 padding-right-zero">
                   <div class="form-group">
                     <input type="text" name="name" class="form-control" id="name" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />

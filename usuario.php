@@ -29,6 +29,7 @@ $query2 = mysqli_query($conn, $sql2);
    <title></title>
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
    <link rel="stylesheet" type="text/css" href="css/style_admin.css" />
+   <script src="js/validar2.js"></script>
 
 </head>
 
@@ -103,12 +104,12 @@ $query2 = mysqli_query($conn, $sql2);
             <div class="accordion-item">
                <h2 class="accordion-header" id="headingOne">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                     Editar Usuario
+                     Editar usuario
                   </button>
                </h2>
                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                     <form id="form1" action="updUser.php" method="POST">
+                     <form id="form1" action="updUser.php" method="POST" onsubmit="return valUser();">
                         <div class="col-md-10">
                            <fieldset disabled>
                               <input type="text" class="form-control mb-3" id="disabledInput" value="<?php echo $row['usuario'] ?>">
@@ -116,7 +117,7 @@ $query2 = mysqli_query($conn, $sql2);
                         </div>
                         <div class="col-md-10">
                            <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
-                           <input type="text" class="form-control mb-3" id="validationDefault01" name="usuario" placeholder="Usuario" required>
+                           <input type="text" class="form-control mb-3" id="usuario" name="usuario" placeholder="Usuario" required>
                         </div>
                         <div class="col-md-3">
                            <input type="submit" class="btn btn-secondary" value="Cambiar">
@@ -133,7 +134,7 @@ $query2 = mysqli_query($conn, $sql2);
                </h2>
                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                     <form id="form2" action="updPass.php" method="POST">
+                     <form id="form2" action="updPass.php" method="POST" onsubmit="return valPass();">
                         <div class="col-md-10">
                            <fieldset disabled>
                               <input type="password" class="form-control mb-3" id="disabledInput" placeholder="<?php echo $row['contrasena'] ?>">
@@ -141,10 +142,10 @@ $query2 = mysqli_query($conn, $sql2);
                         </div>
                         <div class="col-md-10">
                            <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
-                           <input type="password" class="form-control mb-3" id="validationDefault01" name="password" placeholder="Contraseña" required>
+                           <input type="password" class="form-control mb-3" id="pass" name="password" placeholder="Contraseña" required>
                         </div>
                         <div class="col-md-3">
-                           <input type="submit" class="btn btn-secondary" value="cambiar">
+                           <input type="submit" class="btn btn-secondary" value="Cambiar">
                         </div>
                      </form>
                   </div>
@@ -153,12 +154,12 @@ $query2 = mysqli_query($conn, $sql2);
             <div class="accordion-item">
                <h2 class="accordion-header" id="headingThree">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                     Editar Nombre
+                     Editar nombre
                   </button>
                </h2>
                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                     <form id="form3" action="updName.php" method="POST">
+                     <form id="form3" action="updName.php" method="POST" onsubmit="return valNombre();">
                         <div class="col-md-10">
                            <fieldset disabled>
                               <input type="text" class="form-control mb-3" id="disabledInput" placeholder="<?php echo $row['nombres'] ?>">
@@ -166,10 +167,10 @@ $query2 = mysqli_query($conn, $sql2);
                         </div>
                         <div class="col-md-10">
                            <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
-                           <input type="text" class="form-control mb-3" id="validationDefault01" name="nombres" placeholder="Nombres" required>
+                           <input type="text" class="form-control mb-3" id="nombre" name="nombres" placeholder="Nombres" onkeypress="return soloLetras(event)" required>
                         </div>
                         <div class="col-md-3">
-                           <input type="submit" class="btn btn-secondary" value="cambiar">
+                           <input type="submit" class="btn btn-secondary" value="Cambiar">
                         </div>
                      </form>
                   </div>
@@ -178,12 +179,12 @@ $query2 = mysqli_query($conn, $sql2);
             <div class="accordion-item">
                <h2 class="accordion-header" id="heading4">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                     Editar Apellido
+                     Editar apellido
                   </button>
                </h2>
                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                     <form id="form4" action="updLastName.php" method="POST">
+                     <form id="form4" action="updLastName.php" method="POST" onsubmit="return valApellido();">
                         <div class="col-md-10">
                            <fieldset disabled>
                               <input type="text" class="form-control mb-3" id="disabledTextInput" placeholder="<?php echo $row['apellidos'] ?>">
@@ -191,7 +192,7 @@ $query2 = mysqli_query($conn, $sql2);
                         </div>
                         <div class="col-md-10">
                            <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
-                           <input type="text" class="form-control mb-3" id="validationDefault01" name="apellidos" placeholder="Apellidos" required>
+                           <input type="text" class="form-control mb-3" id="apellido" name="apellidos" placeholder="Apellidos" onkeypress="return soloLetras(event)" required>
                         </div>
                         <div class="col-md-3">
                            <input type="submit" class="btn btn-secondary" value="Cambiar">
@@ -208,7 +209,7 @@ $query2 = mysqli_query($conn, $sql2);
                </h2>
                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                     <form id="form5" action="updEmail.php" method="POST">
+                     <form id="form5" action="updEmail.php" method="POST" onsubmit="return valCorr();">
                         <div class="col-md-10">
                            <fieldset disabled>
                               <input type="text" class="form-control mb-3" id="disabledInput" placeholder="<?php echo $row['correo'] ?>">
@@ -216,10 +217,10 @@ $query2 = mysqli_query($conn, $sql2);
                         </div>
                         <div class="col-md-10">
                            <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
-                           <input type="email" class="form-control mb-3" id="validationDefault01" name="correo" placeholder="Correo Electrónico" required>
+                           <input type="email" class="form-control mb-3" id="correo" name="correo" placeholder="Correo Electrónico" required>
                         </div>
                         <div class="col-md-3">
-                           <input type="submit" class="btn btn-primary">
+                           <input type="submit" class="btn btn-secondary" value="Cambiar">
                         </div>
                      </form>
                   </div>
@@ -233,7 +234,7 @@ $query2 = mysqli_query($conn, $sql2);
                </h2>
                <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                     <form id="form6" action="updDate.php" method="POST">
+                     <form id="form6" action="updDate.php" method="POST" onsubmit="return valFec();">
                         <div class="col-md-10">
                            <fieldset disabled>
                               <input type="text" class="form-control mb-3" id="disabledInput" placeholder="<?php echo $row['fecNac'] ?>">
@@ -241,7 +242,7 @@ $query2 = mysqli_query($conn, $sql2);
                         </div>
                         <div class="col-md-10">
                            <input type="hidden" class="form-control mb-3" name="id" value="<?php echo $row['id'] ?>">
-                           <input type="date" class="form-control mb-3" id="validationDefault01" name="fecha" required>
+                           <input type="date" class="form-control mb-3" id="fecha" name="fecha" required>
                         </div>
                         <div class="col-md-3">
                            <input type="submit" class="btn btn-secondary" value="Cambiar">

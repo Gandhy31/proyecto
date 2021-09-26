@@ -43,9 +43,6 @@
                   <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarNav">
-
-                  
-
                   <div class="dropdown ms-auto">
                   <a class="btn btn-secondary dropdown-toggle avatar bg-transparent border-0 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle me-1 mb-1" viewBox="0 0 16 16">
@@ -56,7 +53,7 @@
 
                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="#">Iniciado como <strong><?php echo $row2['usuario'] ?></strong></a></li>
-                        <li><a class="dropdown-item" href="admin2.php">Reportes</a></li>
+                        <li><a class="dropdown-item" href="admin2.php?id=<?php echo $id ?>">Reportes</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="logout.php">Cerrar sesión</a></li>
                      </ul>
@@ -76,7 +73,7 @@
             <table class="table col-md-1">
                <thead>
                   <tr>
-                     <th scope="col">ID Usuario</th>
+                     <th scope="col">ID</th>
                      <th scope="col">Nombres</th>
                      <th scope="col">Apellidos</th>
                      <th scope="col">Usuario</th>
@@ -109,7 +106,7 @@
             <table class="table col-md-1">
                <thead>
                   <tr>
-                     <th scope="col">ID Curso</th>
+                     <th scope="col">ID </th>
                      <th scope="col">Nombre</th>
                      <th scope="col">Descripción</th>
                      <th scope="col">Precio</th>

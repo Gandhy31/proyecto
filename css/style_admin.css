@@ -62,5 +62,5 @@ body{
 
 .container{
     height: calc(100vh - 202px);
-    text-align: center;
+    text-align: left !important;
 }

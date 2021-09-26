@@ -98,7 +98,6 @@ $query2 = mysqli_query($conn, $sql2);
    </header>
 
    <div class="container mt-5">
-
       <div class="row">
          <div class="accordion col-md-4" id="accordionExample">
             <div class="accordion-item">
@@ -253,7 +252,7 @@ $query2 = mysqli_query($conn, $sql2);
             </div>
          </div>
 
-         <div class="col-md-7 ms-5">
+         <div class="col-md-7 ms-5 text-start">
             <h1 id="title">Mis compras</h1>
             <table class="table col-md-1">
                <thead>

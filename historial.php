@@ -93,75 +93,72 @@
       </div>
    </header>
 
-   <div class="container mt-5">
-
+   <div class="container mt-5 text-start">
       <div class="row">
-         <div class="col-md-10 ms-5">
+         <div class="col-md-12">
             <h1 id="title">Historial de compras</h1>
             <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Pago</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-            while($row2=mysqli_fetch_array($query2)){
-        ?>
-             <tr>
-                <th><?php  echo $row2['nombre']?></th>
-                <th><?php  echo $row2['descripcion']?></th>
-                <th><?php  echo $row2['fecha']?></th>
-                <th><?php  echo $row2['total']?></th>
-                <th>
-                    <?php  
-                        if($row2['activo']==0){
-                            echo "Pago pendediente";
-                        }else{
-                            echo "Pagado";
-                        }
-                    ?>
-                </th>
-                <th><a href="factura.php?idF=<?php echo $row2['id']?>&id=<?php echo $id ?>" target="_blank" class="btn btn-outline-secondary">Factura</a></th>
-                <th>
-                  <a id="btn1" class="btn btn-outline-secondary 
-                     <?php
-                        if($row2['activo']==1)
-                        {
-                           echo "disabled";
-                        }
-                     ?>
-                  " href="https://wa.me/593980264931?text=Me%20interesa%20el%20Curso%20de%20Maquillaje%20Profesional%20Online" target="_blank" role="button" 
-                  <?php
-                     if ($row2['activo']==1) {
-                        echo "aria-disabled=\"true\" ";
-                        }
-                  ?>>
-                     <?php
-                        if ($row2['activo']==1) {
-                           echo "Pagado";
-                        }else{
-                           echo "Realizar Pago";
-                        }
-                     ?>
-                  </a>
-                </th>
-            </tr>
-         <?php 
-            }
-        ?>
-        </tbody>
-    </table>
+               <thead>
+                     <tr>
+                     <th scope="col" class="text-center">Nombre</th>
+                     <th scope="col" class="text-center">Descripción</th>
+                     <th scope="col" class="text-center">Fecha</th>
+                     <th scope="col" class="text-center">Precio</th>
+                     <th scope="col" class="text-center">Pago</th>
+                     <th scope="col"></th>
+                     <th scope="col"></th>
+                     </tr>
+               </thead>
+               <tbody>
+               <?php
+                     while($row2=mysqli_fetch_array($query2)){
+               ?>
+                     <tr>
+                        <th><?php  echo $row2['nombre']?></th>
+                        <th><?php  echo $row2['descripcion']?></th>
+                        <th class="text-center"><?php  echo $row2['fecha']?></th>
+                        <th class="text-center"><?php  echo $row2['total']?></th>
+                        <th >
+                           <?php  
+                                 if($row2['activo']==0){
+                                    echo "Pago pendediente";
+                                 }else{
+                                    echo "Pagado";
+                                 }
+                           ?>
+                        </th>
+                        <th><a href="factura.php?idF=<?php echo $row2['id']?>&id=<?php echo $id ?>" target="_blank" class="btn btn-outline-secondary">Factura</a></th>
+                        <th>
+                           <a id="btn1" class="btn btn-outline-secondary 
+                              <?php
+                                 if($row2['activo']==1)
+                                 {
+                                    echo "disabled";
+                                 }
+                              ?>
+                           " href="https://wa.me/593980264931?text=Me%20interesa%20el%20Curso%20de%20Maquillaje%20Profesional%20Online" target="_blank" role="button" 
+                           <?php
+                              if ($row2['activo']==1) {
+                                 echo "aria-disabled=\"true\" ";
+                                 }
+                           ?>>
+                              <?php
+                                 if ($row2['activo']==1) {
+                                    echo "Pagado";
+                                 }else{
+                                    echo "Realizar Pago";
+                                 }
+                              ?>
+                           </a>
+                        </th>
+                     </tr>
+                  <?php 
+                     }
+               ?>
+               </tbody>
+            </table>
          </div>
-
       </div>
-
    </div>
 
    <footer id="footer">

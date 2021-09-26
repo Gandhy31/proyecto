@@ -18,7 +18,6 @@
         if($squery){
 
             Header("Location: usuario.php?id=$id");
-
         }
     }
 ?>

@@ -61,6 +61,6 @@ body{
 }
 
 .container{
-    height: calc(100vh - 202px);
+    min-height: calc(100vh - 202px);
     text-align: left !important;
 }

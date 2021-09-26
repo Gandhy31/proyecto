@@ -1,36 +1,36 @@
 <?php
-   include("conexion.php");
-   $conn = conectar();
-   $conn = conectar();
-   session_start();
-   if(!isset($_SESSION['idA'])){
-      header("Location: index.php");
-   }
-   $id = $_GET['id'];
-   $idU = $_GET['idU'];
-   $sql1 = "SELECT*
+include("conexion.php");
+$conn = conectar();
+$conn = conectar();
+session_start();
+if (!isset($_SESSION['idA'])) {
+   header("Location: index.php");
+}
+$id = $_GET['id'];
+$idU = $_GET['idU'];
+$sql1 = "SELECT*
             FROM usuario
             WHERE id=$idU";
-   $query1=mysqli_query($conn,$sql1);
-   $row1 = mysqli_fetch_array($query1);
-   $sql = "SELECT curso.id, curso.nombre, curso.descripcion, factura.fecha, factura.total, factura.activo, factura.id as idF
+$query1 = mysqli_query($conn, $sql1);
+$row1 = mysqli_fetch_array($query1);
+$sql = "SELECT curso.id, curso.nombre, curso.descripcion, factura.fecha, factura.total, factura.activo, factura.id as idF
            FROM factura INNER JOIN curso
            ON curso.id=factura.idCurso AND factura.idUsuario=$idU";
-   $query=mysqli_query($conn,$sql);
-   $sql2 = "SELECT*
+$query = mysqli_query($conn, $sql);
+$sql2 = "SELECT*
             FROM admininstrador
             WHERE id='$id'";
-   $query2=mysqli_query($conn,$sql2);
-   $row2 = mysqli_fetch_array($query2);
-   $sql3 = "SELECT COUNT(activo) as activo
+$query2 = mysqli_query($conn, $sql2);
+$row2 = mysqli_fetch_array($query2);
+$sql3 = "SELECT COUNT(activo) as activo
             FROM factura
             WHERE idUsuario='$idU' AND activo=1";
-   $query3=mysqli_query($conn,$sql3);
-   $row3 = mysqli_fetch_array($query3);
-   $sql4 = "SELECT COUNT(curso.nombre) AS numC
+$query3 = mysqli_query($conn, $sql3);
+$row3 = mysqli_fetch_array($query3);
+$sql4 = "SELECT COUNT(curso.nombre) AS numC
             FROM factura INNER JOIN curso
             ON curso.id=factura.idCurso AND factura.idUsuario=$idU";
-$query4=mysqli_query($conn,$sql4);
+$query4 = mysqli_query($conn, $sql4);
 $row4 = mysqli_fetch_array($query4);
 ?>
 
@@ -57,20 +57,22 @@ $row4 = mysqli_fetch_array($query4);
                </button>
                <div class="collapse navbar-collapse" id="navbarNav">
 
-                  
+
 
                   <div class="dropdown ms-auto">
-                  <a class="btn btn-secondary dropdown-toggle avatar bg-transparent border-0 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                     <a class="btn btn-secondary dropdown-toggle avatar bg-transparent border-0 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle me-1 mb-1" viewBox="0 0 16 16">
                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                        </svg><?php echo $row2['nombres']." ".$row2['apellidos'] ?>
+                        </svg><?php echo $row2['nombres'] . " " . $row2['apellidos'] ?>
                      </a>
 
                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="#">Iniciado como <strong><?php echo $row2['usuario'] ?></strong></a></li>
                         <li><a class="dropdown-item" href="admin2.php?id=<?php echo $id ?>">Reportes</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                           <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" href="logout.php">Cerrar sesión</a></li>
                      </ul>
                   </div>
@@ -84,56 +86,71 @@ $row4 = mysqli_fetch_array($query4);
 
    <section id="info" class="wrap">
 
-      <div id="admin" >
-        <h1>Reporte</h1>
-        <h4>Nombre del Usuario: <?php echo $row1['nombres']. " ".$row1['apellidos'] ?></h4>
-        <h4>Usuario: <?php echo $row1['usuario'] ?></h4>
-        <h4>Número de celular: <?php echo $row1['celular'] ?></h4>
-        <h4>Correo electrónico: <?php echo $row1['correo'] ?></h4>
-        <h4>Número de cursos totales: <?php echo $row4['numC'] ?> </h4>
-        <h4>Número de cursos con pago pendiente: <?php echo $row4['numC']-$row3['activo'] ?> </h4>
-        <h4>Número de cursos con pago realizado: <?php echo $row3['activo'] ?> </h4>
-         <br>
+      <div id="admin">
+         <h1>Reporte</h1>
+         <div class="row">
+            <div class="col-md-6 data">
+
+               <strong>Nombre del Usuario: </strong><?php echo $row1['nombres'] . " " . $row1['apellidos'] ?>
+               <br>
+               <strong>Usuario: </strong><?php echo $row1['usuario'] ?>
+               <br>
+               <strong>Número de celular: </strong><?php echo $row1['celular'] ?>
+               <br>
+               <strong>Correo electrónico: </strong><?php echo $row1['correo'] ?>
+
+            </div>
+            <div class="col-md-6 data">
+               <strong>Número de cursos totales: </strong><?php echo $row4['numC'] ?>
+               <br>
+               <strong>Número de cursos con pago pendiente: </strong><?php echo $row4['numC'] - $row3['activo'] ?>
+               <br>
+               <strong>Número de cursos con pago realizado: </strong><?php echo $row3['activo'] ?>
+            </div>
+         </div>
+         
+         <hr>
+         
          <h2>Lista de cursos</h2>
-        <table class="table col-md-1">
-               <thead>
+         <table class="table col-md-1">
+            <thead>
+               <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Total</th>
+                  <th scope="col">Pago</th>
+                  <th scope="col"></th>
+               </tr>
+            </thead>
+            <tbody>
+               <?php
+               while ($row = mysqli_fetch_array($query)) {
+               ?>
                   <tr>
-                     <th scope="col">ID Curso</th>
-                     <th scope="col">Nombre</th>
-                     <th scope="col">Descripción</th>
-                     <th scope="col">Fecha de Factura</th>
-                     <th scope="col">Total</th>
-                     <th scope="col">Pago</th>
-                     <th scope="col"></th>
+                     <th><?php echo $row['id'] ?></th>
+                     <th><?php echo $row['nombre'] ?></th>
+                     <th><?php echo $row['descripcion'] ?></th>
+                     <th><?php echo $row['fecha'] ?></th>
+                     <th><?php echo $row['total'] ?></th>
+                     <th>
+                        <?php
+                        if ($row['activo'] == 0) {
+                           echo "Pago pendediente";
+                        } else {
+                           echo "Pagado";
+                        }
+                        ?>
+                     </th>
+                     <th><a href="factura.php?idF=<?php echo $row['idF'] ?>&id=<?php echo $id ?>" target="_blank" class="btn btn-outline-secondary">Factura</a></th>
                   </tr>
-               </thead>
-               <tbody>
-                  <?php
-                  while ($row = mysqli_fetch_array($query)) {
-                  ?>
-                     <tr>
-                        <th><?php echo $row['id'] ?></th>
-                        <th><?php echo $row['nombre'] ?></th>
-                        <th><?php echo $row['descripcion'] ?></th>
-                        <th><?php echo $row['fecha'] ?></th>
-                        <th><?php echo $row['total'] ?></th>
-                        <th>
-                           <?php  
-                                 if($row['activo']==0){
-                                    echo "Pago pendediente";
-                                 }else{
-                                    echo "Pagado";
-                                 }
-                           ?>
-                        </th> 
-                        <th><a href="factura.php?idF=<?php echo $row['idF']?>&id=<?php echo $id ?>" target="_blank" class="btn btn-outline-secondary">Factura</a></th>
-                     </tr>
-                  <?php
-                  }
-                  ?>
-               </tbody>
-            </table>
-            
+               <?php
+               }
+               ?>
+            </tbody>
+         </table>
+
       </div>
    </section>
 

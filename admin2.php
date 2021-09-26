@@ -1,24 +1,24 @@
 <?php
-   include("conexion.php");
-   $conn = conectar();
-   session_start();
-   if(!isset($_SESSION['idA'])){
-      header("Location: index.php");
-   }
-   $id = $_GET['id'];
-   $sql = "SELECT*
+include("conexion.php");
+$conn = conectar();
+session_start();
+if (!isset($_SESSION['idA'])) {
+   header("Location: index.php");
+}
+$id = $_GET['id'];
+$sql = "SELECT*
            FROM usuario";
-   $query=mysqli_query($conn,$sql);
-   
-   $sql2 = "SELECT*
+$query = mysqli_query($conn, $sql);
+
+$sql2 = "SELECT*
             FROM admininstrador
             WHERE id='$id'";
-   $query2=mysqli_query($conn,$sql2);
-   $row2 = mysqli_fetch_array($query2);
-   $sql3 = "SELECT*
+$query2 = mysqli_query($conn, $sql2);
+$row2 = mysqli_fetch_array($query2);
+$sql3 = "SELECT*
            FROM curso";
-   $query3=mysqli_query($conn,$sql3);
-   
+$query3 = mysqli_query($conn, $sql3);
+
 ?>
 
 <!DOCTYPE html>
@@ -44,17 +44,19 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarNav">
                   <div class="dropdown ms-auto">
-                  <a class="btn btn-secondary dropdown-toggle avatar bg-transparent border-0 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                     <a class="btn btn-secondary dropdown-toggle avatar bg-transparent border-0 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle me-1 mb-1" viewBox="0 0 16 16">
                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                        </svg><?php echo $row2['nombres']." ".$row2['apellidos'] ?>
+                        </svg><?php echo $row2['nombres'] . " " . $row2['apellidos'] ?>
                      </a>
 
                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="#">Iniciado como <strong><?php echo $row2['usuario'] ?></strong></a></li>
                         <li><a class="dropdown-item" href="admin2.php?id=<?php echo $id ?>">Reportes</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                           <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" href="logout.php">Cerrar sesión</a></li>
                      </ul>
                   </div>
@@ -68,8 +70,9 @@
 
    <section id="info" class="wrap">
 
-      <div id="admin" >
-      <h1>Reportes por usuario</h1>
+      <div id="admin">
+         <div class=" caja mb-4">
+            <h1>Reportes por usuario</h1>
             <table class="table col-md-1">
                <thead>
                   <tr>
@@ -95,15 +98,20 @@
                         <th><?php echo $row['celular'] ?></th>
                         <th><?php echo $row['correo'] ?></th>
                         <th><?php echo $row['fecNac'] ?></th>
-                        <th><a href="repU.php?idU=<?php echo $row['id']?>&id=<?php echo $id ?>" class="btn btn-outline-primary">Generar Reporte</a></th>
+                        <th><a href="repU.php?idU=<?php echo $row['id'] ?>&id=<?php echo $id ?>" class="btn btn-outline-primary">Generar Reporte</a></th>
                      </tr>
                   <?php
                   }
                   ?>
                </tbody>
             </table>
+         </div>
+
+         <hr>
+
+         <div class="caja mt-4">
             <h1>Reportes por curso</h1>
-            <table class="table col-md-1">
+            <table class="table col-md-1 mt-3">
                <thead>
                   <tr>
                      <th scope="col">ID </th>
@@ -124,16 +132,16 @@
                         <th><?php echo $row3['nombre'] ?></th>
                         <th><?php echo $row3['descripcion'] ?></th>
                         <th><?php echo $row3['precio'] ?></th>
-
-                        <th><a href="rep1.php?idC=<?php echo $row3['id']?>&id=<?php echo $id ?>" class="btn btn-outline-primary">Reporte Completo</a></th>
-                        <th><a href="rep2.php?idC=<?php echo $row3['id']?>&id=<?php echo $id ?>" class="btn btn-outline-primary">Usuarios Pendientes</a></th>
-                        <th><a href="rep3.php?idC=<?php echo $row3['id']?>&id=<?php echo $id ?>" class="btn btn-outline-primary">Usuarios Confirmados</a></th>
+                        <th><a href="rep1.php?idC=<?php echo $row3['id'] ?>&id=<?php echo $id ?>" class="btn btn-outline-primary">Reporte Completo</a></th>
+                        <th><a href="rep2.php?idC=<?php echo $row3['id'] ?>&id=<?php echo $id ?>" class="btn btn-outline-primary">Usuarios Pendientes</a></th>
+                        <th><a href="rep3.php?idC=<?php echo $row3['id'] ?>&id=<?php echo $id ?>" class="btn btn-outline-primary">Usuarios Confirmados</a></th>
                      </tr>
                   <?php
                   }
                   ?>
                </tbody>
             </table>
+         </div>
       </div>
 
    </section>

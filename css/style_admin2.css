@@ -57,3 +57,19 @@ body{
 #admin{
     min-height: calc(100vh - 201.6px);
 }
+
+#admin h1,
+#admin h2{
+    font-weight: bold;
+    text-align: center;
+   
+}
+
+#admin h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.data{
+    font-size: 18px;
+}

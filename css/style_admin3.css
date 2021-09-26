@@ -57,3 +57,7 @@ body{
 #admin{
     height: auto;
 }
+
+.caja h1{
+   font-weight: bold;
+}

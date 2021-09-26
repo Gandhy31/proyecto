@@ -1,37 +1,37 @@
 <?php
-   include("conexion.php");
-   $conn = conectar();
-   $conn = conectar();
-   session_start();
-   if(!isset($_SESSION['idA'])){
-      header("Location: index.php");
-   }
-   $id = $_GET['id'];
-   $idC = $_GET['idC'];
-   $sql1 = "SELECT*
+include("conexion.php");
+$conn = conectar();
+$conn = conectar();
+session_start();
+if (!isset($_SESSION['idA'])) {
+   header("Location: index.php");
+}
+$id = $_GET['id'];
+$idC = $_GET['idC'];
+$sql1 = "SELECT*
             FROM curso
             WHERE id=$idC";
-   $query1=mysqli_query($conn,$sql1);
-   $row1 = mysqli_fetch_array($query1);
-   $sql = "SELECT usuario.id, usuario.nombres, usuario.apellidos, usuario.usuario , usuario.celular, usuario.correo, factura.fecha, factura.total, factura.activo, factura.id as idF
+$query1 = mysqli_query($conn, $sql1);
+$row1 = mysqli_fetch_array($query1);
+$sql = "SELECT usuario.id, usuario.nombres, usuario.apellidos, usuario.usuario , usuario.celular, usuario.correo, factura.fecha, factura.total, factura.activo, factura.id as idF
            FROM usuario INNER JOIN factura
            ON usuario.id=factura.idUsuario AND factura.idCurso=$idC";
-   $query=mysqli_query($conn,$sql);
-   $sql2 = "SELECT*
+$query = mysqli_query($conn, $sql);
+$sql2 = "SELECT*
             FROM admininstrador
             WHERE id='$id'";
-   $query2=mysqli_query($conn,$sql2);
-   $row2 = mysqli_fetch_array($query2);
-   $sql3 = "SELECT COUNT(activo) as activo
+$query2 = mysqli_query($conn, $sql2);
+$row2 = mysqli_fetch_array($query2);
+$sql3 = "SELECT COUNT(activo) as activo
             FROM factura
             WHERE idCurso='$idC' AND activo=1";
-   $query3=mysqli_query($conn,$sql3);
-   $row3 = mysqli_fetch_array($query3);
-   $sql4 = "SELECT COUNT(usuario.nombres) AS numUsu,SUM(factura.total) as Ganancia
+$query3 = mysqli_query($conn, $sql3);
+$row3 = mysqli_fetch_array($query3);
+$sql4 = "SELECT COUNT(usuario.nombres) AS numUsu,SUM(factura.total) as Ganancia
             FROM usuario INNER JOIN factura
             ON usuario.id=factura.idUsuario AND factura.idCurso=$idC";
-   $query4=mysqli_query($conn,$sql4);
-   $row4 = mysqli_fetch_array($query4);
+$query4 = mysqli_query($conn, $sql4);
+$row4 = mysqli_fetch_array($query4);
 ?>
 
 <!DOCTYPE html>
@@ -57,20 +57,22 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarNav">
 
-                  
+
 
                   <div class="dropdown ms-auto">
-                  <a class="btn btn-secondary dropdown-toggle avatar bg-transparent border-0 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                     <a class="btn btn-secondary dropdown-toggle avatar bg-transparent border-0 " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle me-1 mb-1" viewBox="0 0 16 16">
                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                        </svg><?php echo $row2['nombres']." ".$row2['apellidos'] ?>
+                        </svg><?php echo $row2['nombres'] . " " . $row2['apellidos'] ?>
                      </a>
 
                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="#">Iniciado como <strong><?php echo $row2['usuario'] ?></strong></a></li>
                         <li><a class="dropdown-item" href="admin2.php?id=<?php echo $id ?>">Reportes</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                           <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" href="logout.php">Cerrar sesión</a></li>
                      </ul>
                   </div>
@@ -84,34 +86,43 @@
 
    <section id="info" class="wrap">
 
-      <div id="admin" >
-        <h1>Reporte</h1>
-        <h4>Nombre del Curso: <?php echo $row1['nombre'] ?></h4>
-        <h4>Número de usuarios totales: <?php echo $row4['numUsu'] ?> </h4>
-        <h4>Número de usuarios con pago pendiente:<?php echo $row4['numUsu']-$row3['activo'] ?> </h4>
-        <h4>Número de usuarios con pago realizado:<?php echo $row3['activo'] ?> </h4>
-        <h4>Total recaudado: <?php echo $row4['Ganancia'] ?></h3>
-         <br>
+      <div id="admin">
+         <h1>Reporte</h1>
+         <div class="row">
+            <div class="col-md-6 data">
+               <strong>Nombre del Curso: </strong><?php echo $row1['nombre'] ?>
+               <br>
+               <strong>Número de usuarios totales: </strong><?php echo $row4['numUsu'] ?>
+               <br>
+               <strong>Número de usuarios con pago pendiente: </strong><?php echo $row4['numUsu'] - $row3['activo'] ?>
+            </div>
+            <div class="col-md-6 data">
+               <strong>Número de usuarios con pago realizado: </strong><?php echo $row3['activo'] ?>
+               <br>
+               <strong>Total recaudado: </strong><?php echo $row4['Ganancia'] ?>
+            </div>
+         </div>
+         <hr>
          <h2>Lista de usuarios con pago pendiente</h2>
-        <table class="table col-md-1">
-               <thead>
-                  <tr>
-                     <th scope="col">ID Usuario</th>
-                     <th scope="col">Nombres</th>
-                     <th scope="col">Apellidos</th>
-                     <th scope="col">Usuario</th>
-                     <th scope="col">Número de celular</th>
-                     <th scope="col">Correo electrónico</th>
-                     <th scope="col">Fecha de Factura</th>
-                     <th scope="col">Total</th>
-                     <th scope="col"></th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <?php
-                  while ($row = mysqli_fetch_array($query)) {
-                    if($row['activo']==0){
-                  ?>
+         <table class="table col-md-1">
+            <thead>
+               <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombres</th>
+                  <th scope="col">Apellidos</th>
+                  <th scope="col">Usuario</th>
+                  <th scope="col">Número de celular</th>
+                  <th scope="col">Correo electrónico</th>
+                  <th scope="col">Fecha de Factura</th>
+                  <th scope="col">Total</th>
+                  <th scope="col"></th>
+               </tr>
+            </thead>
+            <tbody>
+               <?php
+               while ($row = mysqli_fetch_array($query)) {
+                  if ($row['activo'] == 0) {
+               ?>
                      <tr>
                         <th><?php echo $row['id'] ?></th>
                         <th><?php echo $row['nombres'] ?></th>
@@ -121,15 +132,15 @@
                         <th><?php echo $row['correo'] ?></th>
                         <th><?php echo $row['fecha'] ?></th>
                         <th><?php echo $row['total'] ?></th>
-                        <th><a href="factura.php?idF=<?php echo $row['idF']?>&id=<?php echo $id ?>" target="_blank" class="btn btn-outline-secondary">Factura</a></th>
+                        <th><a href="factura.php?idF=<?php echo $row['idF'] ?>&id=<?php echo $id ?>" target="_blank" class="btn btn-outline-secondary">Factura</a></th>
                      </tr>
-                  <?php
-                    }
+               <?php
                   }
-                  ?>
-               </tbody>
-            </table>
-            
+               }
+               ?>
+            </tbody>
+         </table>
+
       </div>
    </section>
 

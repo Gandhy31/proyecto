@@ -86,17 +86,26 @@
 
       <div id="admin" >
         <h1>Reporte</h1>
-        <h4>Nombre del Curso: <?php echo $row1['nombre'] ?></h4>
-        <h4>Número de usuarios totales: <?php echo $row4['numUsu'] ?> </h4>
-        <h4>Número de usuarios con pago pendiente:<?php echo $row4['numUsu']-$row3['activo'] ?> </h4>
-        <h4>Número de usuarios con pago realizado:<?php echo $row3['activo'] ?> </h4>
-        <h4>Total recaudado: <?php echo $row4['Ganancia'] ?></h3>
-         <br>
+        <div class="row">
+           <div class="col-md-6 data">
+              <strong>Nombre del Curso: </strong><?php echo $row1['nombre'] ?>
+              <br>
+              <strong>Número de usuarios totales: </strong><?php echo $row4['numUsu'] ?> 
+              <br>
+              <strong>Número de usuarios con pago pendiente: </strong><?php echo $row4['numUsu']-$row3['activo'] ?> 
+            </div>
+            <div class="col-md-6 data">
+               <strong>Número de usuarios con pago realizado: </strong><?php echo $row3['activo'] ?> 
+               <br>
+              <strong>Total recaudado: </strong><?php echo $row4['Ganancia'] ?>
+           </div>
+        </div>
+         <hr>
          <h2>Lista de usuarios inscritos</h2>
         <table class="table col-md-1">
                <thead>
                   <tr>
-                     <th scope="col">ID Usuario</th>
+                     <th scope="col">ID</th>
                      <th scope="col">Nombres</th>
                      <th scope="col">Apellidos</th>
                      <th scope="col">Usuario</th>

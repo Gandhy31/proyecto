@@ -12,6 +12,9 @@
     if(isset($_GET['e'])){
       echo "<script language=\"javascript\">alert(\"Nombre de usuario o contraseña incorrectos\");</script>";
     }
+    if (isset($_GET['lo'])) {
+      echo "<script language=\"javascript\">alert(\"Se ha registrado correctamente, Porfavor ingrese sus credenciales\");</script>";
+   }
 ?>
 
 <!doctype html>

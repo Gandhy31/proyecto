@@ -9,6 +9,7 @@ if (isset($_GET['user'])) {
    $user = $_GET['user'];
    echo "<script language=\"javascript\">alert(\"El nombre de usuario " . $user . " ya se encuentra en uso\");</script>";
 }
+
 $id = $_GET['id'];
 $sql = "SELECT*
           FROM usuario

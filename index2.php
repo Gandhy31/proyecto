@@ -19,7 +19,7 @@ $row = mysqli_fetch_array($query);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PLANTILLA | WEB 3</title>
+  <title>Inua</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 

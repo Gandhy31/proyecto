@@ -27,7 +27,7 @@ $query2 = mysqli_query($conn, $sql2);
 <head>
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, user-scalable=no" />
-   <title></title>
+   <title>Panel de Usuario</title>
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
    <link rel="stylesheet" type="text/css" href="css/style_admin.css" />
    <script src="js/validar2.js"></script>

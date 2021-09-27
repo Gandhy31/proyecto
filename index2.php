@@ -1,6 +1,9 @@
 <?php
 include("conexion.php");
 $conn = conectar();
+if(isset($_GET['men'])){
+  echo "<script language=\"javascript\">alert(\"Mensaje enviado correctamente\");</script>";
+}
 session_start();
 if (!isset($_SESSION['idG'])) {
   header("Location: index.php");
@@ -19,7 +22,7 @@ $row = mysqli_fetch_array($query);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PLANTILLA | WEB 3</title>
+  <title>INUA</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 

@@ -2,9 +2,18 @@
     include("conexion.php");
     $conn = conectar();
     session_start();
+    if(isset($_GET['men'])){
+      echo "<script language=\"javascript\">alert(\"Mensaje enviado correctamente\");</script>";
+    }
+
     if(isset($_SESSION['idG'])){
       $id=$_SESSION['idG'];
-      header("Location: index2.php?id=$id");
+      if(isset($_GET['men'])){
+        $men=$_GET['men'];
+        header("Location: index2.php?id=$id&men=$men");
+      }else{
+        header("Location: index2.php?id=$id");
+      }
     }else if(isset($_SESSION['idA'])){
       $id=$_SESSION['idA'];
       header("Location: admin1.php?id=$id");
@@ -17,7 +26,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PLANTILLA | WEB 3</title>
+  <title>INUA</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 

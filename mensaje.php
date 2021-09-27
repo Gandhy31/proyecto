@@ -10,8 +10,8 @@
 
     $squery=mysqli_query($conn, $sql);
     if($squery){
-
-        Header("Location: index.php");
+        $men=0;
+        Header("Location: index.php?men=$men");
 
     }
 ?>

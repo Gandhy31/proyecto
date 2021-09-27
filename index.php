@@ -17,7 +17,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inua</title>
+  <title>Inua Pro Makeup</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 

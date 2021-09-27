@@ -41,3 +41,21 @@ body{
 #a1:hover{
   text-decoration: underline;
 }
+
+.cajaa2{
+  margin-top: 20px;
+}
+
+#a2{
+  color: #777;
+  font-style: italic;
+  text-decoration: none;
+  margin-left: 37.5%;
+  margin-top: auto;
+  transition: all 300ms;
+}
+
+#a2:hover{
+  color: #be9e21;
+  font-size: 18px;
+}

@@ -30,6 +30,7 @@ $query3 = mysqli_query($conn, $sql3);
    <title></title>
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
    <link rel="stylesheet" type="text/css" href="css/style_admin3.css" />
+   <link rel="icon" type="image/x-icon" href="img/favicon.png" /> 
 </head>
 
 <body>

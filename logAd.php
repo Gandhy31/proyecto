@@ -26,6 +26,7 @@
       <link rel="stylesheet" type="text/css" href="css/styles.css">
 
     <title>Registro</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.png" /> 
   </head>
   <body>
       <div  class="col-md-3" id="caja2">

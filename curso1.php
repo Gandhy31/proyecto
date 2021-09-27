@@ -25,6 +25,7 @@ $row2 = mysqli_fetch_array($query2);
    <title>Curso de Maquillaje Profesional Online</title>
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
    <link rel="stylesheet" type="text/css" href="css/style_curso.css" />
+   <link rel="icon" type="image/x-icon" href="img/favicon.png" /> 
 </head>
 
 <body>

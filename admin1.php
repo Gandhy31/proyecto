@@ -34,6 +34,7 @@
    <title></title>
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
    <link rel="stylesheet" type="text/css" href="css/style_admin2.css" />
+   <link rel="icon" type="image/x-icon" href="img/favicon.png" /> 
 </head>
 
 <body>

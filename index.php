@@ -41,6 +41,8 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/animate.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="img/favicon.png" />                          <!--Favicon...Icono de la pestaña-->
+
  
 </head>
 

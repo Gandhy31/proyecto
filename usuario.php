@@ -31,7 +31,7 @@ $query2 = mysqli_query($conn, $sql2);
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
    <link rel="stylesheet" type="text/css" href="css/style_admin.css" />
    <script src="js/validar2.js"></script>
-
+   <link rel="icon" type="image/x-icon" href="img/favicon.png" /> 
 </head>
 
 <body>

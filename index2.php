@@ -22,11 +22,7 @@ $row = mysqli_fetch_array($query);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<<<<<<< HEAD
-  <title>INUA</title>
-=======
   <title>Inua Pro Makeup</title>
->>>>>>> 62edb706d4cfd737f3f26fa2e33b02fd20edb81f
   <meta name="description" content="">
   <meta name="keywords" content="">
 

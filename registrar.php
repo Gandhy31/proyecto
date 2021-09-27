@@ -15,15 +15,15 @@
     $row1 = mysqli_fetch_array($query1);
     if($row1['usuario']==$user){
         
-        Header("Location: registro2.php?nombres=$nombres&apellidos=$apellidos&cel=$cel&email=$email&fechaN=$fechaN&user=$user&pass=$pass");
+        Header("Location: registro2.php?nombres=$nombres&apellidos=$apellidos&cel=$cel&email=$email&fechaN=$fechaN&user=$user");
     }else{
         $sql = "INSERT usuario(nombres, apellidos, usuario, contrasena, celular, correo, fecNac)
             VALUES('$nombres', '$apellidos', '$user', '$pass', '$cel', '$email', '$fechaN')";
         $squery=mysqli_query($conn, $sql);
 
         if($squery){
-
-            Header("Location: index.php");
+            $lo=0;
+            Header("Location: login.php?lo=$lo");
 
         }else{
         

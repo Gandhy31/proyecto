@@ -19,7 +19,6 @@
     $email = $_GET['email'];
     $fechaN = $_GET['fechaN'];
     $user = $_GET['user'];
-    $pass = $_GET['pass'];
     echo "<script language=\"javascript\">alert(\"El nombre de usuario ".$user." ya se encuentra en uso\");</script>";
 ?>
 

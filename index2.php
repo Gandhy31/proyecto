@@ -369,10 +369,10 @@ $row = mysqli_fetch_array($query);
             <div class="contact-form">
               <div id="sendmessage">Su mensaje fue enviado. Gracias!</div>
               <div id="errormessage"></div>
-              <form action="mensaje.php" method="post" >
+              <form action="mensaje.php" method="POST">
                 <div class="col-md-6 padding-right-zero">
                   <div class="form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <input type="text" name="nombres" class="form-control" id="name" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                     <div class="validation"></div>
                   </div>
                 </div>
@@ -384,13 +384,13 @@ $row = mysqli_fetch_array($query);
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                    <input type="text" class="form-control" name="asunto" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                     <div class="validation"></div>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensaje"></textarea>
+                    <textarea class="form-control" name="mensaje" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensaje"></textarea>
                     <div class="validation"></div>
                   </div>
                   <button type="submit" class="btn btn-primary btn-submit">Enviar ahora</button>

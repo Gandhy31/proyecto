@@ -53,50 +53,53 @@ function validar(){
     }
 
     if(nombre.length<3){
-        alert("Nombres muy cortos: sus nombres deben tener entre 3 y 15 digitos");
+        alert("Nombres muy cortos: Sus nombres deben tener entre 3 y 15 digitos");
         return false;
     }else if(nombre.length>15){
-        alert("Nombres muy extensos: sus nombres deben tener entre 3 y 15 digitos");
+        alert("Nombres muy extensos: Sus nombres deben tener entre 3 y 15 digitos");
         return false;
     }
 
     if(apellido.length<3){
-        alert("Apellidos muy cortos: sus apellidos deben tener entre 3 y 15 digitos");
+        alert("Apellidos muy cortos: Sus apellidos deben tener entre 3 y 15 digitos");
         return false;
     }else if(apellido.length>15){
-        alert("Apellidos muy extensos: sus apellidos deben tener entre 3 y 15 digitos");
+        alert("Apellidos muy extensos: Sus apellidos deben tener entre 3 y 15 digitos");
         return false;
     }
 
-    if(numero.length>15){
-        alert("Número muy extenso: su número debe tener menos de 15 digitos");
+    if(numero.length<8){
+        alert("Número muy corto: Su número debe tener entre 8 y 15 digitos");
+        return false;
+    }else if(numero.length>15){
+        alert("Número muy extenso: Su número debe tener entre 8 y 15 digitos");
         return false;
     }
 
     if(correo.length>30){
-        alert("Correo electrónico muy extenso: su correo electrónico debe tener menos de 30 digitos");
+        alert("Correo electrónico muy extenso: Su correo electrónico debe tener menos de 30 digitos");
         return false;
     }
 
     
     if(edad<16){
-        alert("Ingrese una fecha menor: para registrarse requiere tener una edad mínima de 16 años");
+        alert("Ingrese una fecha menor: Para registrarse requiere tener una edad mínima de 16 años");
         return false;
     }
 
     if(usuario.length<4){
-        alert("Usuario muy corto: su nombre de usuario debe tener entre 4 y 15 digitos");
+        alert("Usuario muy corto: Su nombre de usuario debe tener entre 4 y 15 digitos");
         return false;
     }else if(usuario.length>15){
-        alert("Usuario muy extenso: su nombre de usuario debe tener entre 4 y 15 digitos");
+        alert("Usuario muy extenso: Su nombre de usuario debe tener entre 4 y 15 digitos");
         return false;
     } 
 
     if(pass.length<8){
-        alert("Contraseña muy corta: su contraseña debe tener entre 8 y 15 digitos");
+        alert("Contraseña muy corta: Su contraseña debe tener entre 8 y 15 digitos");
         return false;
     }else if(pass.length>15){
-        alert("Contraseña muy extensa: su contraseña debe tener entre 8 y 15 digitos");
+        alert("Contraseña muy extensa: Su contraseña debe tener entre 8 y 15 digitos");
         return false;
     } 
 }

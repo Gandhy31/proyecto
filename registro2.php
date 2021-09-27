@@ -41,14 +41,14 @@
             <h1>Registro</h1>
                 <form id="form1" action="registrar.php" method="POST" onsubmit="return validar();">
 
-                    <input type="text" class="form-control mb-3" id="nombre" name="nombres" placeholder="Nombres" onkeypress="return soloLetras(event)" required>
-                    <input type="text" class="form-control mb-3" id="apellido" name="apellidos" placeholder="Apellidos" onkeypress="return soloLetras(event)" required>
-                    <input type="text" class="form-control mb-3" id="numero" name="celular" placeholder="Número de celular" onkeypress="return soloNumeros(event)" required>
-                    <input type="email" class="form-control mb-3" id="correo" name="email" placeholder="Correo electrónico"  required>
+                    <input type="text" class="form-control mb-3" id="nombre" name="nombres" placeholder="Nombres" value="<?php echo $nombres ?>" onkeypress="return soloLetras(event)" required>
+                    <input type="text" class="form-control mb-3" id="apellido" name="apellidos" placeholder="Apellidos" value="<?php echo $apellidos ?>" onkeypress="return soloLetras(event)" required>
+                    <input type="text" class="form-control mb-3" id="numero" name="celular" placeholder="Número de celular" value="<?php echo $cel ?>" onkeypress="return soloNumeros(event)" required>
+                    <input type="email" class="form-control mb-3" id="correo" name="email" placeholder="Correo electrónico" value="<?php echo $email ?>"  required>
                     <div id="text" class="form-label">
                       Fecha de nacimiento:
                     </div>
-                    <input type="date" class="form-control mb-3" id="fecha" name="fechaN"   required>
+                    <input type="date" class="form-control mb-3" id="fecha" name="fechaN" value="<?php echo $fechaN ?>" required>
                     <input type="text" class="form-control mb-3" id="usuario" name="usuario" placeholder="Usuario"  required>
                     <input type="password" class="form-control mb-3" id="pass"  name="password" placeholder="Contraseña"  required>
                     <div id="text" class="form-text">

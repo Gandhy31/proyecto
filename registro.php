@@ -11,7 +11,7 @@ if (isset($_SESSION['idG'])) {
 }
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <!-- Required meta tags -->

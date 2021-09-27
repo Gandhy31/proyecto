@@ -301,7 +301,7 @@ $row = mysqli_fetch_array($query);
           <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="blog-sec">
               <div class="blog-img">
-                <a href="">
+                <a href="#blog">
                   <img src="img/p1.png" class="img-responsive">
                 </a>
               </div>
@@ -318,7 +318,7 @@ $row = mysqli_fetch_array($query);
           <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="blog-sec">
               <div class="blog-img">
-                <a href="">
+                <a href="#blog">
                   <img src="img/p2.png" class="img-responsive">
                 </a>
               </div>
@@ -335,7 +335,7 @@ $row = mysqli_fetch_array($query);
           <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="blog-sec">
               <div class="blog-img">
-                <a href="">
+                <a href="#blog">
                   <img src="img/p3.png" class="img-responsive">
                 </a>
               </div>
